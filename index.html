@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family:sans-serif;
+  text-align:center;
+  padding:20px;
+  background:#0b1d3a;
+  color:#fff;
+}
+
+h2 { color:#ff7a00; }
+
+/* モードボタン */
+.mode {
+  background:#555;
+  color:#fff;
+  border-radius:8px; /* ★丸み */
+}
+.mode.active {
+  background:#4fc3f7;
+}
+
+.modeWrap {
+  display:flex;
+  justify-content:center;
+  gap:5px;
+}
+
+.modeWrap button {
+  flex:1;
+  padding:8px 5px;
+  font-size:14px;
+}
+
+/* カード */
+.card {
+  background:#fff;
+  color:#000;
+  border-radius:15px;
+  padding:20px;
+  margin:20px auto;
+  max-width:420px;
+}
+
+#q { text-align:left; }
+#qWrap {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:48px;
+}
+
+#result {
+  font-size:28px;
+  font-weight:bold;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* 選択肢 */
+.choice {
+  display:block;
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#1e3a5f;
+  color:#fff;
+}
+
+
+/* ボタン */
+button {
+  margin:5px;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  background:#ff7a00;
+  color:#fff;
+}
+
+.green {
+  background:#4caf50;
+  margin-top:10px;
+}
+
+/* スコア */
+#scoreBox { margin-top:5px; }
+
+.container {
+  max-width:420px;
+  margin:0 auto;
+}
+
+a {
+  color:#4fc3f7;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>ディオッサ出雲クイズ<br>2026(初級編)</h2>
+
+<div class="modeWrap">
+  <button id="normalBtn" class="mode active" onclick="setMode('normal')">初級</button>
+  <button id="weakBtn" class="mode" onclick="setMode('weak')">苦手</button>
+  <button id="noBtn" class="mode" onclick="setMode('number')">背番号</button>
+  <button id="callBtn" class="mode" onclick="setMode('call')">コール名</button>
+</div>
+
+<div class="card">
+<p id="qWrap">
+  <span id="q"></span>
+  <span id="result"></span>
+</p>
+
+<div id="choices"></div>
+</div>
+
+<button class="green" onclick="resetScore()">正解率リセット</button>
+<div id="scoreBox">0% (0/0)</div>
+
+<br>
+
+<p style="font-size:11px;">
+本アプリは 
+<a href="https://x.com/ExplorerI2025" target="_blank">Explorer.IZM</a> 
+作成のコンテンツです。<br>
+クイズの基礎データは
+<a href="https://www.diosa-fc.jp/player/" target="_blank">ディオッサ出雲のＨＰ</a>
+にあります。
+</p>
+
+</div>
+
+<script>
+
+// ===== データ =====
+const players = [
+ {no:1,name:"西村 清花",pos:"GK",call:"きよ"},
+ {no:2,name:"渡部 那月",pos:"DF",call:"なつき"},
+ {no:3,name:"オモロジェバ 英里香",pos:"DF",call:"おもろ"},
+ {no:4,name:"伊藤 明里",pos:"MF",call:"あかり"},
+ {no:5,name:"安藤 真桜",pos:"DF",call:"まお"},
+ {no:6,name:"伊勢 さつき",pos:"MF",call:"さつき"},
+ {no:7,name:"丸尾 梨菜",pos:"FW",call:"りな"},
+ {no:8,name:"友近 真那",pos:"DF",call:"まな"},
+ {no:9,name:"河村 祐実",pos:"FW",call:"ゆうみ"},
+ {no:10,name:"原 美埜里",pos:"MF",call:"みのり"},
+ {no:11,name:"宮武 里奈",pos:"DF",call:"たけ"},
+ {no:13,name:"打越 怜",pos:"MF",call:"れん･れん･れん"},
+ {no:14,name:"恒石 亜弓",pos:"MF",call:"あゆみ"},
+ {no:15,name:"佐藤 萌里",pos:"MF",call:"もえり"},
+ {no:16,name:"相浦 幸桜",pos:"MF",call:"しあら"},
+ {no:17,name:"島内 日菜子",pos:"DF",call:"ひなこ"},
+ {no:18,name:"福井 真歩",pos:"MF",call:"まほ"},
+ {no:19,name:"平良 文果",pos:"DF",call:"ふみか"},
+ {no:20,name:"都筑 かんな",pos:"FW",call:"かんな"},
+ {no:21,name:"尾添 有紗",pos:"GK",call:"ありさ"},
+ {no:22,name:"徳本 華暖",pos:"DF",call:"かのん"},
+ {no:23,name:"野村 彩衣",pos:"DF",call:"さえ"},
+ {no:30,name:"松本 悠愛",pos:"FW",call:"ゆうな"},
+ {no:31,name:"金織 玲七",pos:"GK",call:"れな"},
+ {no:32,name:"竹下 七海",pos:"DF",call:"ななみ"},
+ {no:33,name:"高木 菜望",pos:"DF",call:"なみ"}
+];
+
+// ===== 状態 =====
+let current;
+let mode="normal";
+let total=0;
+let correctCount=0;
+
+// ===== モード切替 =====
+function setMode(m){
+  mode=m;
+
+  document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
+  if(m==="normal") normalBtn.classList.add("active");
+  if(m==="weak") weakBtn.classList.add("active");
+  if(m==="number") noBtn.classList.add("active");
+  if(m==="call") callBtn.classList.add("active");
+
+  nextQ(); // ★問題中でも切替OK
+}
+
+// ===== シャッフル =====
+function shuffle(arr){
+  return arr.sort(()=>Math.random()-0.5);
+}
+
+// ===== 問題生成 =====
+function createQuestion(){
+
+  const p = players[Math.floor(Math.random()*players.length)];
+  let type;
+
+// モード優先
+if(mode==="number"){
+  type = Math.random() < 0.5 ? 0 : 1;
+}
+else if(mode==="call"){
+  type = 3;
+}
+else{
+  type = Math.floor(Math.random()*4);
+}
+  let q, choices, answer;
+
+  // ===== 背番号 → 名前 =====
+  if(type===0){
+    q = `背番号${p.no}の選手は？`;
+
+    choices = [p.name];
+    while (choices.length < 3) {
+      const r = players[Math.floor(Math.random()*players.length)].name;
+      if (!choices.includes(r)) choices.push(r);
+    }
+
+    choices = shuffle(choices);
+    answer = choices.indexOf(p.name);
+  }
+
+  // ===== 名前 → 背番号 =====
+  else if(type===1){
+    q = `${p.name}の背番号は？`;
+
+    choices = [p.no];
+    while (choices.length < 3) {
+      const r = players[Math.floor(Math.random()*players.length)].no;
+      if (!choices.includes(r)) choices.push(r);
+    }
+
+    choices = shuffle(choices);
+    answer = choices.indexOf(p.no);
+  }
+
+  // ===== ポジション =====
+  else if(type===2){
+    q = `${p.name}のポジションは？`;
+
+    const list = ["GK","DF","MF","FW"];
+    choices = [p.pos];
+
+    while (choices.length < 3) {
+      const r = list[Math.floor(Math.random()*list.length)];
+      if (!choices.includes(r)) choices.push(r);
+    }
+
+    choices = shuffle(choices);
+    answer = choices.indexOf(p.pos);
+  }
+
+  // ===== コール名 =====
+  else {
+    q = `${p.name}のコール名は？`;
+
+    choices = [p.call];
+    while (choices.length < 3) {
+      const r = players[Math.floor(Math.random()*players.length)].call;
+      if (!choices.includes(r)) choices.push(r);
+    }
+
+    choices = shuffle(choices);
+    answer = choices.indexOf(p.call);
+  }
+
+  return {q, choices, answer}; // ★これ重要
+}
+
+// ===== 表示 =====
+function nextQ(){
+  current = createQuestion();
+  q.innerText = current.q;
+  result.innerText="";
+
+  const div = choices;
+  div.innerHTML="";
+
+  current.choices.forEach((c,i)=>{
+    const btn=document.createElement("button");
+    btn.className="choice";
+    btn.innerText=c;
+    btn.onclick=()=>judge(i);
+    div.appendChild(btn);
+  });
+}
+
+// ===== 判定 =====
+function judge(i){
+
+  const buttons = document.querySelectorAll(".choice");
+
+  buttons.forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===current.answer) b.style.background="#4caf50";
+    if(idx===i && idx!==current.answer) b.style.background="#f44336";
+  });
+
+  if(i===current.answer){
+    result.innerText="〇";
+    result.style.color="#4caf50"; // 緑
+    correctCount++;
+  }else{
+    result.innerText="×";
+    result.style.color="#d6001c";  // 赤
+  }
+
+  total++;
+  updateScore();
+
+  setTimeout(nextQ, 1200); // ★表示時間長め
+}
+
+// ===== スコア =====
+function updateScore(){
+  let rate = total ? Math.round(correctCount/total*100) : 0;
+  scoreBox.innerText = `${rate}% (${correctCount}/${total})`;
+}
+
+function resetScore(){
+  total=0;
+  correctCount=0;
+  updateScore();
+}
+
+nextQ();
+
+</script>
+
+</body>
+</html>
