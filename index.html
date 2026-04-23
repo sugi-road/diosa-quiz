@@ -165,11 +165,25 @@ function shuffle(a){return a.sort(()=>Math.random()-0.5)}
 
 function pickPlayer(){
   if(mode==="weak"){
-    let keys=Object.keys(weakMap);
-    if(keys.length>0){
-      let id=keys[Math.floor(Math.random()*keys.length)];
-      return players.find(p=>p.no==id) || randomPlayer();
+    let keys = Object.keys(weakMap);
+
+    // ★ 苦手ゼロ時の動き
+    if(keys.length === 0){
+      alert("苦手はありません！通常モードに戻ります。");
+      setMode("normal");
+      return randomPlayer();
     }
+
+    // ★ 出題バランス（80%苦手 / 20%通常）
+    if(Math.random() < 0.8){
+      let id = keys[Math.floor(Math.random()*keys.length)];
+      return players.find(p=>p.no==id) || randomPlayer();
+    } else {
+      return randomPlayer();
+    }
+  }
+  return randomPlayer();
+}
   }
   return randomPlayer();
 }
