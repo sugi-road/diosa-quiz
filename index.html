@@ -357,8 +357,8 @@ function resetScore(){
   
 function showResult(){
   q.innerText = "終了！";
+  result.innerText = "";   // ←これ重要
   choices.innerHTML = "";
-  result.innerText = "";  // ←消す
 
   const score = document.createElement("div");
   score.innerText = `最終スコア：${correctCount}/${total}`;
