@@ -353,22 +353,22 @@ function resetScore(){
   
 function showResult(){
   q.innerText = "終了！";
-  result.innerText = "";   // ←これ重要
-  document.getElementById("choices").innerHTML = "";
+  result.innerText = "";
+
+  const div = document.getElementById("choices");
+  div.innerHTML = "";
 
   const score = document.createElement("div");
   score.innerText = `最終スコア：${correctCount}/${total}`;
   score.style.fontSize = "20px";
   score.style.margin = "10px";
-  score.style.color = "#d6001c";  // ←赤
+  score.style.color = "#d6001c";
   score.style.fontWeight = "bold";
 
   const btn = document.createElement("button");
   btn.innerText = "もう一度";
-  btn.className = "";
   btn.onclick = restart;
 
-  const div = document.getElementById("choices");
   div.appendChild(score);
   div.appendChild(btn);
 }
