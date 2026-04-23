@@ -298,7 +298,7 @@ function nextQ(){
   q.innerText = current.q;
   result.innerText="";
 
-  const div = choices;
+  const div = document.getElementById("choices");
   div.innerHTML="";
 
   current.choices.forEach((c,i)=>{
@@ -351,7 +351,7 @@ function resetScore(){
 function showResult(){
   q.innerText = "終了！";
   result.innerText = "";   // ←これ重要
-  choices.innerHTML = "";
+  document.getElementById("choices").innerHTML = "";
 
   const score = document.createElement("div");
   score.innerText = `最終スコア：${correctCount}/${total}`;
