@@ -213,7 +213,8 @@ function randomPlayer(){
 }
 
 function createQuestion(){
-  const p=pickPlayer();
+  const p = pickPlayer();
+  if(!p) return null;
   let type=Math.floor(Math.random()*4);
 
   let q,choices,answer;
@@ -271,9 +272,11 @@ function nextQ(){
 
   document.getElementById("progress").innerText=`${questionCount+1}/${maxQuestions}`;
 
-  current=createQuestion();
-  q.innerText=current.q;
-  result.innerText="";
+  current = createQuestion();
+  if(!current) return;
+
+  q.innerText = current.q;
+  result.innerText = "";
 
   let div=document.getElementById("choices");
   div.innerHTML="";
@@ -284,7 +287,6 @@ function nextQ(){
     btn.innerText=c;
     btn.onclick=()=>judge(i);
     div.appendChild(btn);
-    return null;
   });
 }
 
