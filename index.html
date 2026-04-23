@@ -354,15 +354,23 @@ function resetScore(){
   correctCount=0;
   updateScore();
 }
+  
 function showResult(){
   q.innerText = "終了！";
   choices.innerHTML = "";
-  result.innerText = `最終スコア：${correctCount}/${total}`;
+  result.innerText = "";  // ←消す
+
+  const score = document.createElement("div");
+  score.innerText = `最終スコア：${correctCount}/${total}`;
+  score.style.fontSize = "20px";
+  score.style.margin = "10px";
 
   const btn = document.createElement("button");
   btn.innerText = "もう一度";
   btn.className = "green";
   btn.onclick = restart;
+
+  choices.appendChild(score);
   choices.appendChild(btn);
 }
   
