@@ -196,13 +196,12 @@ const maxQuestions = 10;
 function setMode(m){
   mode=m;
 
-  document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
-  if(m==="normal") normalBtn.classList.add("active");
-  if(m==="weak") weakBtn.classList.add("active");
-  if(m==="number") noBtn.classList.add("active");
-  if(m==="call") callBtn.classList.add("active");
+  questionCount = 0;
+  total = 0;
+  correctCount = 0;
 
-  nextQ(); // ★問題中でも切替OK
+  updateScore();
+  nextQ();
 }
 
 // ===== シャッフル =====
@@ -313,7 +312,7 @@ function nextQ(){
 
 // ===== 判定 =====
 function judge(i){
-　questionCount++; 
+  questionCount++; 
   const buttons = document.querySelectorAll(".choice");
 
   buttons.forEach((b,idx)=>{
