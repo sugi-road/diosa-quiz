@@ -193,6 +193,8 @@ let current;
 let mode="normal";
 let total=0;
 let correctCount=0;
+let questionCount = 0;
+const maxQuestions = 10;
 
 // ===== モード切替 =====
 function setMode(m){
@@ -293,6 +295,12 @@ else{
 
 // ===== 表示 =====
 function nextQ(){
+  if(questionCount >= maxQuestions){
+    showResult();
+    return;
+  }
+  questionCount++;
+
   current = createQuestion();
   q.innerText = current.q;
   result.innerText="";
@@ -345,6 +353,25 @@ function resetScore(){
   total=0;
   correctCount=0;
   updateScore();
+}
+function showResult(){
+  q.innerText = "終了！";
+  choices.innerHTML = "";
+  result.innerText = `最終スコア：${correctCount}/${total}`;
+
+  const btn = document.createElement("button");
+  btn.innerText = "もう一度";
+  btn.className = "green";
+  btn.onclick = restart;
+  choices.appendChild(btn);
+}
+  
+function restart(){
+  questionCount = 0;
+  total = 0;
+  correctCount = 0;
+  updateScore();
+  nextQ();
 }
 
 nextQ();
