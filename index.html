@@ -176,10 +176,22 @@ function pickPlayer(){
   if(mode==="weak"){
     let keys = Object.keys(weakMap);
 
+    // ★ 苦手ゼロ時の動き（白枠に表示）
     if(keys.length === 0){
-      alert("苦手はありません！通常モードに戻ります。");
-      setMode("normal");
-      return randomPlayer();
+      document.getElementById("progress").innerText="";
+      document.getElementById("q").innerText="苦手はありません！";
+      document.getElementById("result").innerText="";
+
+      let div = document.getElementById("choices");
+      div.innerHTML = "";
+
+      let btn = document.createElement("button");
+      btn.innerText = "通常モードに戻る";
+      btn.onclick = ()=>setMode("normal");
+
+      div.appendChild(btn);
+
+      return null; // ここで処理止める
     }
 
     if(Math.random() < 0.8){
@@ -268,6 +280,7 @@ function nextQ(){
     btn.innerText=c;
     btn.onclick=()=>judge(i);
     div.appendChild(btn);
+    return null;
   });
 }
 
