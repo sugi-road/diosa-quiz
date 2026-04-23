@@ -120,12 +120,13 @@ button {
 
 <div id="choices"></div>
 </div>
+  
 <p style="font-size:11px;">
 本アプリは 
 <a href="https://x.com/ExplorerI2025" target="_blank">Explorer.IZM</a> 
 作成のコンテンツです。<br>
 クイズの基礎データは
-<a href="https://www.diosa-fc.jp/player/" target="_blank">ディオッサ出雲のＨＰ</a>
+<a href="https://www.diosa-fc.jp/player/" target="_blank"> ディオッサ出雲のＨＰ</a>
 にあります。
 </p>
 
@@ -175,23 +176,18 @@ function pickPlayer(){
   if(mode==="weak"){
     let keys = Object.keys(weakMap);
 
-    // ★ 苦手ゼロ時の動き
     if(keys.length === 0){
       alert("苦手はありません！通常モードに戻ります。");
       setMode("normal");
       return randomPlayer();
     }
 
-    // ★ 出題バランス（80%苦手 / 20%通常）
     if(Math.random() < 0.8){
       let id = keys[Math.floor(Math.random()*keys.length)];
       return players.find(p=>p.no==id) || randomPlayer();
     } else {
       return randomPlayer();
     }
-  }
-  return randomPlayer();
-}
   }
   return randomPlayer();
 }
