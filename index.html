@@ -81,6 +81,10 @@ h2 { color:#ff7a00; }
   align-items:center;
   justify-content:center;
 }
+.callMode .choice {
+  justify-content: flex-start;
+  text-align: left;
+}
 
 button {
   margin:5px;
@@ -107,7 +111,7 @@ button {
 <div class="modeWrap">
   <button id="normalBtn" class="mode active" onclick="setMode('normal')">初級</button>
   <button id="weakBtn" class="mode" onclick="setMode('weak')">苦手</button>
-  <button id="noBtn" class="mode" onclick="setMode('number')">背番号</button>
+  <button id="numberBtn" class="mode" onclick="setMode('number')">背番号</button>
   <button id="callBtn" class="mode" onclick="setMode('call')">コール名</button>
 </div>
 
