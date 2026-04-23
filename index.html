@@ -338,8 +338,11 @@ function judge(i){
 
 // ===== スコア =====
 function updateScore(){
+  const el = document.getElementById("scoreBox");
+  if(!el) return;
+
   let rate = total ? Math.round(correctCount/total*100) : 0;
-  scoreBox.innerText = `${rate}% (${correctCount}/${total})`;
+  el.innerText = `${rate}% (${correctCount}/${total})`;
 }
 
 function resetScore(){
@@ -365,8 +368,9 @@ function showResult(){
   btn.className = "";
   btn.onclick = restart;
 
-  choices.appendChild(score);
-  choices.appendChild(btn);
+  const div = document.getElementById("choices");
+  div.appendChild(score);
+  div.appendChild(btn);
 }
   
 function restart(){
