@@ -196,11 +196,18 @@ const maxQuestions = 10;
 function setMode(m){
   mode=m;
 
+  // ▼ ボタンの色切替
+  document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
+  if(m==="normal") normalBtn.classList.add("active");
+  if(m==="weak") weakBtn.classList.add("active");
+  if(m==="number") noBtn.classList.add("active");
+  if(m==="call") callBtn.classList.add("active");
+
+  // ▼ リセット
   questionCount = 0;
   total = 0;
   correctCount = 0;
 
-  updateScore();
   nextQ();
 }
 
