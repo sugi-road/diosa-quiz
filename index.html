@@ -299,8 +299,6 @@ function nextQ(){
     showResult();
     return;
   }
-  questionCount++;
-
   current = createQuestion();
   q.innerText = current.q;
   result.innerText="";
@@ -319,7 +317,7 @@ function nextQ(){
 
 // ===== 判定 =====
 function judge(i){
-
+　questionCount++; 
   const buttons = document.querySelectorAll(".choice");
 
   buttons.forEach((b,idx)=>{
