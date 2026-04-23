@@ -362,10 +362,12 @@ function showResult(){
   score.innerText = `最終スコア：${correctCount}/${total}`;
   score.style.fontSize = "20px";
   score.style.margin = "10px";
+  score.style.color = "#d6001c";  // ←赤
+  score.style.fontWeight = "bold";
 
   const btn = document.createElement("button");
   btn.innerText = "もう一度";
-  btn.className = "green";
+  btn.className = "";
   btn.onclick = restart;
 
   choices.appendChild(score);
