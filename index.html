@@ -39,7 +39,14 @@ h2 { color:#ff7a00; }
 }
 
 /* カード */
-.card {
+<div id="progress">1 / 10</div>
+  #progress {
+  font-size:12px;
+  color:#888;
+  text-align:right;
+  margin-bottom:5px;
+}
+  .card {
   background:#fff;
   color:#000;
   border-radius:15px;
@@ -196,18 +203,14 @@ const maxQuestions = 10;
 function setMode(m){
   mode=m;
 
-  // ▼ ボタンの色切替
+  // ▼ ボタン色
   document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
   if(m==="normal") normalBtn.classList.add("active");
   if(m==="weak") weakBtn.classList.add("active");
   if(m==="number") noBtn.classList.add("active");
   if(m==="call") callBtn.classList.add("active");
 
-  // ▼ リセット
-  questionCount = 0;
-  total = 0;
-  correctCount = 0;
-
+  // ▼ 問題だけ更新（カウントは維持）
   nextQ();
 }
 
@@ -297,10 +300,16 @@ else{
 
 // ===== 表示 =====
 function nextQ(){
+
   if(questionCount >= maxQuestions){
     showResult();
     return;
   }
+
+  // ▼ ここ追加
+  document.getElementById("progress").innerText =
+    `${questionCount+1} / ${maxQuestions}`;
+
   current = createQuestion();
   q.innerText = current.q;
   result.innerText="";
@@ -359,6 +368,7 @@ function resetScore(){
 }
   
 function showResult(){
+  document.getElementById("progress").innerText = "";
   q.innerText = "終了！";
   result.innerText = "";
 
