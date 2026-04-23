@@ -171,7 +171,10 @@ function setMode(m){
   mode=m;
   document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
   document.getElementById(m+"Btn").classList.add("active");
-  nextQ();
+  document.body.classList.remove("callMode");
+  if(m==="call"){
+    document.body.classList.add("callMode");
+  }nextQ();
 }
 
 function shuffle(a){return a.sort(()=>Math.random()-0.5)}
