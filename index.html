@@ -55,6 +55,7 @@ h2 { color:#ff7a00; }
   display:flex;
   justify-content:space-between;
   align-items:center;
+  text-align:left;
   min-height:70px;
 }
 
@@ -224,60 +225,124 @@ function randomPlayer(){
 }
 
 function createQuestion(){
-  const p = pickPlayer();
-  if(!p) return null;
-  let type=Math.floor(Math.random()*4);
 
-  let q,choices,answer;
+  const p = players[Math.floor(Math.random()*players.length)];
+  let q, choices, answer;
 
-  if(type===0){
-    q=`背番号${p.no}の選手は？`;
-    choices=[p.name];
-    while(choices.length<3){
-      let r=randomPlayer().name;
-      if(!choices.includes(r))choices.push(r);
+  // ===== 背番号モード =====
+  if(mode==="number"){
+
+    if(Math.random() < 0.5){
+      // 番号→名前
+      q = `背番号${p.no}の選手は？`;
+
+      choices = [p.name];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].name;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.name);
+
+    }else{
+      // 名前→番号
+      q = `${p.name}の背番号は？`;
+
+      choices = [p.no];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].no;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.no);
     }
-    choices=shuffle(choices);
-    answer=choices.indexOf(p.name);
   }
 
-  else if(type===1){
-    q=`${p.name}の背番号は？`;
-    choices=[p.no];
-    while(choices.length<3){
-      let r=randomPlayer().no;
-      if(!choices.includes(r))choices.push(r);
+  // ===== コール名モード =====
+  else if(mode==="call"){
+
+    if(Math.random() < 0.5){
+      // 名前→コール
+      q = `${p.name}のコール名は？`;
+
+      choices = [p.call];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].call;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.call);
+
+    }else{
+      // コール→名前 ← ★これ追加
+      q = `「${p.call}」は誰？`;
+
+      choices = [p.name];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].name;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.name);
     }
-    choices=shuffle(choices);
-    answer=choices.indexOf(p.no);
   }
 
-  else if(type===2){
-    q=`${p.name}のポジションは？`;
-    const list=["GK","DF","MF","FW"];
-    choices=[p.pos];
-    while(choices.length<3){
-      let r=list[Math.floor(Math.random()*list.length)];
-      if(!choices.includes(r))choices.push(r);
-    }
-    choices=shuffle(choices);
-    answer=choices.indexOf(p.pos);
-  }
-
+  // ===== 通常モード =====
   else{
-    q=`${p.name}のコール名は？`;
-    choices=[p.call];
-    while(choices.length<3){
-      let r=randomPlayer().call;
-      if(!choices.includes(r))choices.push(r);
+
+    const type = Math.floor(Math.random()*3);
+
+    // 番号→名前
+    if(type===0){
+      q = `背番号${p.no}の選手は？`;
+
+      choices = [p.name];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].name;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.name);
     }
-    choices=shuffle(choices);
-    answer=choices.indexOf(p.call);
+
+    // 名前→番号
+    else if(type===1){
+      q = `${p.name}の背番号は？`;
+
+      choices = [p.no];
+      while (choices.length < 3) {
+        const r = players[Math.floor(Math.random()*players.length)].no;
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.no);
+    }
+
+    // ポジション
+    else{
+      q = `${p.name}のポジションは？`;
+
+      const list = ["GK","DF","MF","FW"];
+      choices = [p.pos];
+
+      while (choices.length < 3) {
+        const r = list[Math.floor(Math.random()*list.length)];
+        if (!choices.includes(r)) choices.push(r);
+      }
+
+      choices = shuffle(choices);
+      answer = choices.indexOf(p.pos);
+    }
   }
 
-  return {q,choices,answer,player:p};
+  return {q, choices, answer};
 }
-
 function nextQ(){
   if(questionCount>=maxQuestions){return showResult();}
 
