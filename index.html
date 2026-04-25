@@ -241,7 +241,9 @@ function randomPlayer(){
 
 function createQuestion(){
 
-  const p = players[Math.floor(Math.random()*players.length)];
+  const p = pickPlayer();
+  if(!p) return null;
+
   let q, choices, answer;
 
   // ===== 背番号モード =====
@@ -356,7 +358,7 @@ function createQuestion(){
     }
   }
 
-  return {q, choices, answer};
+ return {q, choices, answer, player:p};
 }
 function nextQ(){
   if(questionCount>=maxQuestions){return showResult();}
