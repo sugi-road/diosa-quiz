@@ -436,7 +436,9 @@ else if(type==="call"){
       }
     }
 
-    choices=shuffle(choices);
+    choices.sort((a,b)=>
+    parseInt(a)-parseInt(b)
+    );
 
     answer=choices.indexOf(correctText);
   }
