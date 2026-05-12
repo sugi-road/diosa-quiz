@@ -39,8 +39,8 @@ h1,h2{
 .modeWrap button{
   flex:1;
   padding:6px 8px;
-  font-size:13px;
-  white-space:nowrap;
+  font-size:12px;
+  white-spacenowrap;
 }
 
 .card{
