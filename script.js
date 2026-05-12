@@ -195,6 +195,10 @@ function createQuestion(){
       players.find(player =>
         String(player.no)===String(weakNo)
       );
+    
+    if(p){
+      usedPlayers.push(p.no);
+    }
 
     // 保険
     if(!p){
