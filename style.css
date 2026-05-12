@@ -116,3 +116,11 @@ a:hover{
 .footer{
   font-size:11px;
 }
+/* トップ画面専用 */
+
+.topPage .menu button{
+
+  width:220px;
+  font-size:22px;
+
+}
