@@ -33,15 +33,15 @@ h1,h2{
 .modeWrap{
   display:flex;
   justify-content:center;
-  gap:1px;
+  gap:3px;
+  flex-wrap:wrap;
 }
 
 .modeWrap button{
-  flex:1;
-  padding:7px 1px;
-  font-size:11px;
+  flex:none;
+  padding:6px 10px;
+  font-size:12px;
   white-space:nowrap;
-  border-radius:6px;
 }
 
 .card{
