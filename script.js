@@ -92,6 +92,7 @@ const maxQuestions=10;
 
 let correct=0;
 let total=0;
+let usedPlayers = [];
 
 let weakMap =
 JSON.parse(localStorage.getItem("weakMap")||"{}");
@@ -122,6 +123,7 @@ function setMode(m){
   questionCount=0;
   correct=0;
   total=0;
+  usedPlayers = [];
 
   nextQ();
 }
@@ -131,9 +133,29 @@ function shuffle(a){
 }
 
 function randomPlayer(){
-  return players[
-    Math.floor(Math.random()*players.length)
-  ];
+
+  // 未使用選手だけ抽出
+  let availablePlayers =
+    players.filter(
+      p => !usedPlayers.includes(p.no)
+    );
+
+  // 全員使ったらリセット
+  if(availablePlayers.length===0){
+
+    usedPlayers=[];
+
+    availablePlayers=[...players];
+  }
+
+  const p =
+    availablePlayers[
+      Math.floor(Math.random()*availablePlayers.length)
+    ];
+
+  usedPlayers.push(p.no);
+
+  return p;
 }
 
 function createQuestion(){
