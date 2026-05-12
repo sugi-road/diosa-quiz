@@ -158,6 +158,12 @@ function randomPlayer(){
   return p;
 }
 
+function randomChoicePlayer(){
+  return players[
+    Math.floor(Math.random()*players.length)
+  ];
+}
+
 function createQuestion(){
 
   let p;
@@ -257,7 +263,7 @@ choices=[p.name.split("(")[0]];
 
 while(choices.length<choiceCount){
 
-  const r=randomPlayer().name.split("(")[0];
+  const r=randomChoicePlayer().name.split("(")[0];
 
   if(!choices.includes(r)){
     choices.push(r);
@@ -279,7 +285,7 @@ answer=choices.indexOf(
 
     while(choices.length<choiceCount){
 
-      const r=randomPlayer().no;
+      const r=randomChoicePlayer().no;
 
       if(!choices.includes(r)){
         choices.push(r);
@@ -328,8 +334,8 @@ else if(type==="call"){
 
     while(choices.length<choiceCount){
 
-      const r=randomPlayer().call;
-
+      const r=randomChoicePlayer().call;
+      
       if(!choices.includes(r)){
         choices.push(r);
       }
@@ -347,7 +353,7 @@ else if(type==="call"){
 
     while(choices.length<choiceCount){
 
-      const r=randomPlayer().name.split("(")[0];
+      const r=randomChoicePlayer().name.split("(")[0];
 
       if(!choices.includes(r)){
         choices.push(r);
@@ -371,8 +377,8 @@ else if(type==="call"){
 
     while(choices.length<choiceCount){
 
-      const r=randomPlayer().from;
-
+      const r=randomChoicePlayer().from;
+      
       if(!choices.includes(r)){
         choices.push(r);
       }
@@ -391,7 +397,7 @@ else if(type==="call"){
 
     while(choices.length<choiceCount){
 
-      const r=randomPlayer().company;
+      const r=randomChoicePlayer().company;
 
       if(!choices.includes(r)){
         choices.push(r);
@@ -416,7 +422,7 @@ else if(type==="call"){
 
     while(choices.length<choiceCount){
 
-      const rPlayer=randomPlayer();
+      const rPlayer=randomChoicePlayer();
 
       const r =
         `${currentYear-rPlayer.join+1}年目`;
