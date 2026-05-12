@@ -33,7 +33,7 @@ h1,h2{
 .modeWrap{
   display:flex;
   justify-content:center;
-  gap:5px;
+  gap:2px;
 }
 
 .modeWrap button{
