@@ -34,7 +34,7 @@ h1,h2{
 .modeWrap{
   display:flex;
   justify-content:center;
-  gap:0px;
+  gap:1px;
   flex-wrap:wrap;
 }
 
