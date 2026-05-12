@@ -296,7 +296,7 @@ answer=choices.indexOf(
       }
     }
 
-    choices=shuffle(choices);
+    choices.sort((a,b)=>a-b);
 
     answer=choices.indexOf(p.no);
   }
