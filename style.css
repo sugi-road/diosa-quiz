@@ -67,6 +67,7 @@ h1,h2{
   align-items:center;
   text-align:left;
   min-height:70px;
+  gap:10px;
 }
 
 .callMode #q{
