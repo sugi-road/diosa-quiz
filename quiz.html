@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ディオッサ出雲クイズ</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/icon-192.png">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 id="title"></h2>
+
+<div class="modeWrap">
+
+<button id="normalBtn" class="mode active"
+onclick="setMode('normal')">
+通常
+</button>
+
+<button id="weakBtn" class="mode"
+onclick="setMode('weak')">
+苦手
+</button>
+
+<button id="numberBtn" class="mode"
+onclick="setMode('number')">
+背番号
+</button>
+
+<button id="callBtn" class="mode"
+onclick="setMode('call')">
+コール名
+</button>
+
+<button id="birthplaceBtn" class="mode"
+onclick="setMode('birthplace')">
+出身地
+</button>
+
+<button id="companyBtn" class="mode"
+onclick="setMode('company')">
+雇用企業
+</button>
+
+</div>
+
+<div class="card">
+
+<div id="progress"></div>
+
+<p id="qWrap">
+<span id="q"></span>
+<span id="result"></span>
+</p>
+
+<div id="choices"></div>
+
+</div>
+
+<button onclick="location.href='index.html'">
+トップへ戻る
+</button>
+
+<p class="footer">
+
+本アプリは
+<a href="https://x.com/ExplorerI2025" target="_blank">
+Explorer.IZM
+</a>
+作成のコンテンツです。<br>
+
+クイズの基礎データは
+<a href="https://www.diosa-fc.jp/player/" target="_blank">
+ディオッサ出雲のＨＰ
+</a>
+にあります。
+
+</p>
+
+</div>
+
+<script src="./data/quiz2026.js"></script>
+<script src="./script.js"></script>
+
+</body>
+</html>

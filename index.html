@@ -1,448 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>ディオッサ出雲クイズ</title>
-<meta name="apple-mobile-web-app-title" content="ディオッサ クイズ">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
-<style>
-body {
-  font-family:sans-serif;
-  text-align:center;
-  padding:5px;
-  background:#0b1d3a;
-  color:#fff;
-}
 
-h2 { color:#ff7a00; }
+<title>ディオッサ出雲クイズ</title>
 
-.mode {
-  background:#555;
-  color:#fff;
-  border-radius:8px;
-}
-.mode.active { background:#4fc3f7; }
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/icon-192.png">
+<link rel="apple-touch-icon" href="images/icon-192.png">
 
-.modeWrap {
-  display:flex;
-  justify-content:center;
-  gap:5px;
-}
+<link rel="stylesheet" href="style.css">
 
-.modeWrap button {
-  flex:1;
-  padding:6px 3px;
-  font-size:13px;
-  white-space:nowrap;
-}
-
-#progress {
-  font-size:12px;
-  color:#888;
-  text-align:right;
-  margin-bottom:5px;
-}
-
-.card {
-  background:#fff;
-  color:#000;
-  border-radius:15px;
-  padding:10px 20px 20px 20px;
-  margin:20px auto;
-  max-width:420px;
-}
-
-#qWrap {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  text-align:left;
-  min-height:70px;
-}
-
-#result {
-  font-size:28px;
-  font-weight:bold;
-  width:40px;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-  .callMode #q {
-  text-align: left;
-}
-
-.choice {
-  display:flex;
-  width:100%;
-  height:48px;
-  margin:8px 0;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-  background:#1e3a5f;
-  color:#fff;
-  align-items:center;
-  justify-content:center;
-}
-
-button {
-  margin:5px;
-  padding:10px 20px;
-  border:none;
-  border-radius:8px;
-  background:#ff7a00;
-  color:#fff;
-}
-
-.container {
-  max-width:420px;
-  margin:0 auto;
-}
-a {
-  color:#4fc3f7;
-  text-decoration:none;
-}
-
-a:hover {
-  text-decoration:underline;
-}
-
-</style>
 </head>
+
 <body>
 
 <div class="container">
 
-<h2>ディオッサ出雲クイズ<br>2026(初級編)</h2>
+<h1>
+ディオッサ出雲クイズ
+</h1>
 
-<div class="modeWrap">
-  <button id="normalBtn" class="mode active" onclick="setMode('normal')">初級</button>
-  <button id="weakBtn" class="mode" onclick="setMode('weak')">苦手</button>
-  <button id="numberBtn" class="mode" onclick="setMode('number')">背番号</button>
-  <button id="callBtn" class="mode" onclick="setMode('call')">コール名</button>
-</div>
-
-<div class="card">
-<div id="progress">1 / 10</div>
-<p id="qWrap">
-  <span id="q"></span>
-  <span id="result"></span>
+<p>
+モードを選択してください
 </p>
 
-<div id="choices"></div>
+<div class="menu">
+
+<button onclick="location.href='quiz.html?year=2026&level=beginner'">
+2026 初級
+</button>
+
+<button onclick="location.href='quiz.html?year=2026&level=intermediate'">
+2026 中級
+</button>
+
+<button onclick="location.href='quiz.html?year=2026&level=advanced'">
+2026 上級
+</button>
+
 </div>
-  
-<p style="font-size:11px;">
-本アプリは 
-<a href="https://x.com/ExplorerI2025" target="_blank">Explorer.IZM</a> 
+
+<p class="footer">
+
+本アプリは
+<a href="https://x.com/ExplorerI2025" target="_blank">
+Explorer.IZM
+</a>
 作成のコンテンツです。<br>
+
 クイズの基礎データは
-<a href="https://www.diosa-fc.jp/player/" target="_blank"> ディオッサ出雲のＨＰ</a>
+<a href="https://www.diosa-fc.jp/player/" target="_blank">
+ディオッサ出雲のＨＰ
+</a>
 にあります。
+
 </p>
 
 </div>
-
-<script>
-
-const players = [
- {no:1,name:"西村 清花",pos:"GK",call:"きよ"},
- {no:2,name:"渡部 那月",pos:"DF",call:"なつき"},
- {no:3,name:"オモロジェバ 英里香",pos:"DF",call:"おもろ"},
- {no:4,name:"伊藤 明里",pos:"MF",call:"あかり"},
- {no:5,name:"安藤 真桜",pos:"DF",call:"まお"},
- {no:6,name:"伊勢 さつき",pos:"MF",call:"さつき"},
- {no:7,name:"丸尾 梨菜",pos:"FW",call:"りな"},
- {no:8,name:"友近 真那",pos:"DF",call:"まな"},
- {no:9,name:"河村 祐実",pos:"FW",call:"ゆうみ"},
- {no:10,name:"原 美埜里",pos:"MF",call:"みのり"},
- {no:11,name:"宮武 里奈",pos:"DF",call:"たけ"},
- {no:13,name:"打越 怜",pos:"MF",call:"れん･れん･れん"},
- {no:14,name:"恒石 亜弓",pos:"MF",call:"あゆみ"},
- {no:15,name:"佐藤 萌里",pos:"MF",call:"もえり"},
- {no:16,name:"相浦 幸桜",pos:"MF",call:"しあら"},
- {no:17,name:"島内 日菜子",pos:"DF",call:"ひなこ"},
- {no:18,name:"福井 真歩",pos:"MF",call:"まほ"},
- {no:19,name:"平良 文果",pos:"DF",call:"ふみか"},
- {no:20,name:"都筑 かんな",pos:"FW",call:"かんな"},
- {no:21,name:"尾添 有紗",pos:"GK",call:"ありさ"},
- {no:22,name:"徳本 華暖",pos:"DF",call:"かのん"},
- {no:23,name:"野村 彩衣",pos:"DF",call:"さえ"},
- {no:30,name:"松本 悠愛",pos:"FW",call:"ゆうな"},
- {no:31,name:"金織 玲七",pos:"GK",call:"れな"},
- {no:32,name:"竹下 七海",pos:"DF",call:"ななみ"},
- {no:33,name:"高木 菜望",pos:"DF",call:"なみ"},
-];
-
-let mode="normal";
-let current;
-let questionCount=0;
-const maxQuestions=10;
-
-let correct=0;
-let total=0;
-
-// 苦手管理（記憶型）
-let weakMap = JSON.parse(localStorage.getItem("weakMap")||"{}");
-
-function saveWeak(){
-  localStorage.setItem("weakMap", JSON.stringify(weakMap));
-}
-
-function setMode(m){
-  mode=m;
-  document.querySelectorAll(".mode").forEach(b=>b.classList.remove("active"));
-  document.getElementById(m+"Btn").classList.add("active");
-  document.body.classList.remove("callMode");
-  if(m==="call"){
-    document.body.classList.add("callMode");
-  }
-  nextQ();
-}
-
-function shuffle(a){return a.sort(()=>Math.random()-0.5)}
-
-function pickPlayer(){
-  if(mode==="weak"){
-    let keys = Object.keys(weakMap);
-
-    // ★ 苦手ゼロ時の動き（白枠に表示）
-    if(keys.length === 0){
-      document.getElementById("progress").innerText="";
-      document.getElementById("q").innerText="苦手はありません！";
-      document.getElementById("result").innerText="";
-
-      let div = document.getElementById("choices");
-      div.innerHTML = "";
-
-      let btn = document.createElement("button");
-      btn.innerText = "通常モードに戻る";
-      btn.onclick = ()=>setMode("normal");
-
-      div.appendChild(btn);
-
-      return null; // ここで処理止める
-    }
-
-    if(Math.random() < 0.8){
-      let id = keys[Math.floor(Math.random()*keys.length)];
-      return players.find(p=>p.no==id) || randomPlayer();
-    } else {
-      return randomPlayer();
-    }
-  }
-  return randomPlayer();
-}
-
-function randomPlayer(){
-  return players[Math.floor(Math.random()*players.length)];
-}
-
-function createQuestion(){
-
-  const p = pickPlayer();
-  if(!p) return null;
-
-  let q, choices, answer;
-
-  // ===== 背番号モード =====
-  if(mode==="number"){
-
-    if(Math.random() < 0.5){
-      // 番号→名前
-      q = `背番号${p.no}の選手は？`;
-
-      choices = [p.name];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].name;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.name);
-
-    }else{
-      // 名前→番号
-      q = `${p.name}の背番号は？`;
-
-      choices = [p.no];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].no;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.no);
-    }
-  }
-
-  // ===== コール名モード =====
-  else if(mode==="call"){
-
-    if(Math.random() < 0.5){
-      // 名前→コール
-      q = `${p.name}のコール名は？`;
-
-      choices = [p.call];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].call;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.call);
-
-    }else{
-      // コール→名前 ← ★これ追加
-      q = `コール名が「${p.call}」は誰？`;
-
-      choices = [p.name];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].name;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.name);
-    }
-  }
-
-  // ===== 通常モード =====
-  else{
-
-    const type = Math.floor(Math.random()*3);
-
-    // 番号→名前
-    if(type===0){
-      q = `背番号${p.no}の選手は？`;
-
-      choices = [p.name];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].name;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.name);
-    }
-
-    // 名前→番号
-    else if(type===1){
-      q = `${p.name}の背番号は？`;
-
-      choices = [p.no];
-      while (choices.length < 3) {
-        const r = players[Math.floor(Math.random()*players.length)].no;
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.no);
-    }
-
-    // ポジション
-    else{
-      q = `${p.name}のポジションは？`;
-
-      const list = ["GK","DF","MF","FW"];
-      choices = [p.pos];
-
-      while (choices.length < 3) {
-        const r = list[Math.floor(Math.random()*list.length)];
-        if (!choices.includes(r)) choices.push(r);
-      }
-
-      choices = shuffle(choices);
-      answer = choices.indexOf(p.pos);
-    }
-  }
-
- return {q, choices, answer, player:p};
-}
-function nextQ(){
-  if(questionCount>=maxQuestions){return showResult();}
-
-  document.getElementById("progress").innerText=`${questionCount+1}/${maxQuestions}`;
-
-  current = createQuestion();
-  if(!current) return;
-
-  q.innerText = current.q;
-  result.innerText = "";
-
-  let div=document.getElementById("choices");
-  div.innerHTML="";
-
-  current.choices.forEach((c,i)=>{
-    let btn=document.createElement("button");
-    btn.className="choice";
-    btn.innerText=c;
-    btn.onclick=()=>judge(i);
-    div.appendChild(btn);
-  });
-}
-
-function judge(i){
-  questionCount++;
-
-  let buttons=document.querySelectorAll(".choice");
-
-  buttons.forEach((b,idx)=>{
-    b.disabled=true;
-    if(idx===current.answer)b.style.background="#4caf50";
-    if(idx===i&&idx!==current.answer)b.style.background="#f44336";
-  });
-
-  let pid=current.player.no;
-
-  if(i===current.answer){
-    result.innerText="〇";
-    result.style.color="#4caf50";
-    correct++;
-
-    if(mode==="weak"){
-      weakMap[pid] = (weakMap[pid]||0) - 1;
-      if(weakMap[pid] <= 0) delete weakMap[pid];
-    }
-  } else {
-    result.innerText="×";
-    result.style.color="#d6001c";
-
-    weakMap[pid] = (weakMap[pid]||0) + 2;
-  }
-
-  total++;
-  saveWeak();
-
-  setTimeout(nextQ,1000);
-}
-
-function showResult(){
-  document.getElementById("progress").innerText="";
-  q.innerText="終了！";
-  result.innerText="";
-
-  let div=document.getElementById("choices");
-  div.innerHTML="";
-
-  let score=document.createElement("div");
-  score.innerText=`最終スコア ${correct}/${total}`;
-
-  let btn=document.createElement("button");
-  btn.innerText="もう一度";
-  btn.onclick=()=>location.reload();
-
-  div.appendChild(score);
-  div.appendChild(btn);
-}
-
-nextQ();
-
-</script>
 
 </body>
 </html>
