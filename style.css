@@ -63,12 +63,8 @@ h1,h2{
 }
 
 #qWrap{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   text-align:left;
   min-height:60px;
-  gap:10px;
 }
 
 #q{
