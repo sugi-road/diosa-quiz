@@ -67,8 +67,12 @@ h1,h2{
   justify-content:space-between;
   align-items:center;
   text-align:left;
-  min-height:70px;
+  min-height:60px;
   gap:10px;
+}
+
+#q{
+  flex:1;
 }
 
 .callMode #q{
