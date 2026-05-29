@@ -2,6 +2,9 @@ const params = new URLSearchParams(location.search);
 
 const year = params.get("year") || "2026";
 const level = params.get("level") || "beginner";
+const forceFaceMode =
+  params.get("faceonly")==="1";
+
 
 let quizData;
 
@@ -39,6 +42,17 @@ const players = quiz2026.players;
 document.getElementById("title").innerText =
   quizData.title;
 
+// 似顔絵専用ページ
+if(forceFaceMode){
+
+  const modeWrap =
+    document.querySelector(".modeWrap");
+
+  if(modeWrap){
+    modeWrap.style.display = "none";
+  }
+}
+
 // レベル別メニュー切替
 
 if(level==="beginner"){
@@ -46,6 +60,7 @@ if(level==="beginner"){
   // 初級
   document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("callBtn").style.display="inline-block";
+  document.getElementById("faceBtn").style.display="inline-block";
 
   const birthplaceBtn =
     document.getElementById("birthplaceBtn");
@@ -67,6 +82,7 @@ else if(level==="intermediate"){
   // 中級
   document.getElementById("numberBtn").style.display="none";
   document.getElementById("callBtn").style.display="none";
+  document.getElementById("faceBtn").style.display="none";
 
   const birthplaceBtn =
     document.getElementById("birthplaceBtn");
@@ -83,7 +99,14 @@ else if(level==="intermediate"){
   }
 }
 
-let mode="normal";
+else if(level==="advanced"){
+
+  document.getElementById("faceBtn").style.display="none";
+
+}
+
+let mode = (typeof forceFaceMode !== "undefined") ? "face" : "normal";
+
 let current;
 
 let questionCount=0;
@@ -214,7 +237,14 @@ function createQuestion(){
 
 let type;
 
-if(mode==="number"){
+// 似顔絵専用ページ
+if(typeof forceFaceMode !== "undefined"){
+
+  type = "face";
+
+}
+
+else if(mode==="number"){
 
   type="number";
 
@@ -237,6 +267,13 @@ else if(mode==="company"){
   type="company";
 
 }
+
+else if(mode==="face"){
+
+  type="face";
+
+}
+
 
 else{
 
@@ -413,6 +450,26 @@ else if(type==="call"){
     answer=choices.indexOf(p.company);
   }
 
+else if(type==="face"){
+
+  qText = "この選手は誰？";
+
+  choices=[p.name];
+
+  while(choices.length<choiceCount){
+
+    const r=randomChoicePlayer().name;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  choices=shuffle(choices);
+
+  answer=choices.indexOf(p.name);
+}
+
   else if(type==="joinYear"){
 
     const currentYear=2026;
@@ -447,7 +504,8 @@ else if(type==="call"){
     q:qText,
     choices,
     answer,
-    player:p
+    player:p,
+    type:type
   };
 }
 
@@ -470,7 +528,19 @@ if(current.special){
 
   document.getElementById("result").innerText="";
 
-  let div=document.getElementById("choices");
+const photoArea =
+  document.getElementById("photoArea");
+
+photoArea.innerHTML = "";
+
+if(current.type==="face" && current.player?.face){
+
+  photoArea.innerHTML =
+    `<img src="${current.player.face}">`;
+
+}
+
+let div=document.getElementById("choices");
 
   div.innerHTML="";
 
@@ -496,7 +566,19 @@ if(current.special){
 
   document.getElementById("result").innerText="";
 
-  let div=document.getElementById("choices");
+const photoArea =
+  document.getElementById("photoArea");
+
+photoArea.innerHTML = "";
+
+if(current.type==="face" && current.player?.face){
+
+  photoArea.innerHTML =
+    `<img src="${current.player.face}">`;
+
+}
+
+let div=document.getElementById("choices");
 
   div.innerHTML="";
 
@@ -580,6 +662,7 @@ function showResult(){
   document.getElementById("q").innerText="終了！";
 
   document.getElementById("result").innerText="";
+  document.getElementById("photoArea").innerHTML="";
 
   let div=document.getElementById("choices");
 
