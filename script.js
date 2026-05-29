@@ -689,4 +689,12 @@ function showResult(){
   div.appendChild(btn);
 }
 
-nextQ();
+if(forceFaceMode){
+
+  setMode("face");
+
+}else{
+
+  nextQ();
+
+}
