@@ -76,7 +76,10 @@ if(level==="beginner"){
   // 初級
   document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("callBtn").style.display="inline-block";
-  document.getElementById("faceBtn").style.display="inline-block";
+  // 似顔絵ＯＫでたら、次の行を使う
+  // document.getElementById("faceBtn").style.display="inline-block";
+  // 似顔絵ＯＫでたら、次の行を消す
+  document.getElementById("faceBtn").style.display="none";
 
   const birthplaceBtn =
     document.getElementById("birthplaceBtn");
