@@ -45,11 +45,24 @@ document.getElementById("title").innerText =
 // 似顔絵専用ページ
 if(forceFaceMode){
 
+  // モードボタン非表示
   const modeWrap =
     document.querySelector(".modeWrap");
 
   if(modeWrap){
     modeWrap.style.display = "none";
+  }
+
+  // タイトル変更
+  document.getElementById("title").innerText =
+    "ディオッサ出雲クイズ（似顔絵編）";
+
+  // トップへ戻るボタン非表示
+  const topBtn =
+    document.getElementById("topBtn");
+
+  if(topBtn){
+    topBtn.style.display = "none";
   }
 }
 
