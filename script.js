@@ -134,9 +134,13 @@ function setMode(m){
   document.querySelectorAll(".mode")
     .forEach(b=>b.classList.remove("active"));
 
-  document.getElementById(m+"Btn")
-    .classList.add("active");
+  const modeBtn =
+    document.getElementById(m+"Btn");
 
+  if(modeBtn){
+    modeBtn.classList.add("active");
+  }
+  
   document.body.classList.remove("callMode");
 
   if(m==="call"){
