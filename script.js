@@ -55,7 +55,7 @@ if(forceFaceMode){
 
   // タイトル変更
   document.getElementById("title").innerText =
-    "ディオッサ出雲クイズ（似顔絵編）";
+    "ディオッサ出雲クイズ(似顔絵編)";
 
   // トップへ戻るボタン非表示
   const topBtn =
