@@ -80,7 +80,28 @@ if(level==="beginner"){
 else if(level==="intermediate"){
 
   // 中級
-  document.getElementById("numberBtn").style.display="none";
+  document.getElementById("numberBtn").style.display="inline-block";
+  document.getElementById("callBtn").style.display="inline-block";
+  document.getElementById("faceBtn").style.display="none";
+
+  const birthplaceBtn =
+    document.getElementById("birthplaceBtn");
+
+  const companyBtn =
+    document.getElementById("companyBtn");
+
+  if(birthplaceBtn){
+    birthplaceBtn.style.display="inline-block";
+  }
+
+  if(companyBtn){
+    companyBtn.style.display="none";
+  }
+}
+
+else if(level==="advanced"){
+
+  document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("callBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
 
@@ -97,12 +118,6 @@ else if(level==="intermediate"){
   if(companyBtn){
     companyBtn.style.display="inline-block";
   }
-}
-
-else if(level==="advanced"){
-
-  document.getElementById("faceBtn").style.display="none";
-
 }
 
 let mode = forceFaceMode ? "face" : "normal";
@@ -245,8 +260,6 @@ let type;
 if(forceFaceMode){
 
   type = "face";
-
-}
 
 }
 
