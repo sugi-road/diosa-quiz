@@ -135,3 +135,18 @@ a:hover{
   font-size:18px;
 
 }
+
+/* 似顔絵専用 */
+
+.faceOnly h2{
+  font-size:22px;
+}
+
+.faceOnly #photoArea img{
+  width:140px;
+  height:140px;
+}
+
+.faceOnly .card{
+  padding-top:4px;
+}
