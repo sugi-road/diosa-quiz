@@ -64,6 +64,9 @@ if(forceFaceMode){
   if(topBtn){
     topBtn.style.display = "none";
   }
+
+  // 似顔絵専用CSS
+  document.body.classList.add("faceOnly");
 }
 
 // レベル別メニュー切替
