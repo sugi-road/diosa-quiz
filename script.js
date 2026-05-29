@@ -105,7 +105,7 @@ else if(level==="advanced"){
 
 }
 
-let mode = (typeof forceFaceMode !== "undefined") ? "face" : "normal";
+let mode = forceFaceMode ? "face" : "normal";
 
 let current;
 
@@ -238,9 +238,11 @@ function createQuestion(){
 let type;
 
 // 似顔絵専用ページ
-if(typeof forceFaceMode !== "undefined"){
+if(forceFaceMode){
 
   type = "face";
+
+}
 
 }
 
