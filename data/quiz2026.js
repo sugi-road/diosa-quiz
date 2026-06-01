@@ -3,7 +3,7 @@ const quiz2026 = {
   players:[
 
  {no:1,name:"西村 清花(にしむら きよか)"  ,from:"兵庫県"	,pos:"GK"	,company:"イーグリッド"		,join:2024	,call:"きよ"	,face:"images/face1.png"},
- {no:2,name:"渡部 那月(わたなべ なつき)"  ,from:"出雲市"	,pos:"DF"	,company:"建装"	      		,join:2026	,call:"なつき"	,face:"images/face2.png"},
+ {no:2,name:"渡部 那月(わたなべ なつき)"  ,from:"出雲市"	,pos:"DF"	,company:"建装"	      		,join:2026	,call:"なっち"	,face:"images/face2.png"},
  {no:3,name:"オモロジェバ 英里香(えりか)"  ,from:"東京都"	,pos:"DF"	,company:"サン電子工業"		,join:2026	,call:"おもろ"	,face:"images/face3.png"},
  {no:4,name:"伊藤 明里(いとう あかり)"    ,from:"広島県"	,pos:"MF"	,company:"ナカバヤシ ファクトリー" ,join:2020	,call:"あかり"	,face:"images/face4.png"},
  {no:5,name:"安藤 真桜(あんどう まお)"    ,from:"鳥取県"	,pos:"DF"	,company:"ナカバヤシ ファクトリー" ,join:2023	,call:"まお"	,face:"images/face5.png"},
@@ -24,6 +24,7 @@ const quiz2026 = {
  {no:21,name:"尾添 有紗(おぞえ ありさ)"  ,from:"出雲市"	,pos:"GK"	,company:"島根銀行"	    	,join:2024	,call:"ありさ"	,face:"images/face21.png"},
  {no:22,name:"徳本 華暖(とくもと かのん)",from:"京都府"	,pos:"DF"	,company:"島建コンサルタント"	,join:2026	,call:"かのん"	,face:"images/face22.png"},
  {no:23,name:"野村 彩衣(のむら さえ)"    ,from:"愛知県"	,pos:"DF"	,company:"福間商事"	    	,join:2024	,call:"さえ"	,face:"images/face23.png"},
+ {no:26,name:"柏原 凪沙(かしわばら なぎさ)"    ,from:"広島県"	,pos:"MF"	,company:"調整中"	    	,join:2026	,call:"なぎさ"	,face:"images/face26.png"},
  {no:30,name:"松本 悠愛(まつもと ゆうな)",from:"鳥取県"	,pos:"FW"	,company:"境港二中"	    	,join:2026	,call:"ゆうな"	,face:"images/face30.png"},
  {no:31,name:"金織 玲七(かなおり れな)"  ,from:"松江市"	,pos:"GK"	,company:"大社高"	      	,join:2026	,call:"れな"	,face:"images/face31.png"},
  {no:32,name:"竹下 七海(たけした ななみ)"  ,from:"松江市"	,pos:"DF"	,company:"松江西高"	    	,join:2026	,call:"ななみ"	,face:"images/face32.png"},
