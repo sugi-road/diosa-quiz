@@ -42,7 +42,8 @@ const quiz2026 = {
         "number",
         "position",
         "call",
-	"face"
+  // 似顔絵ＯＫでたら、次の行を使う
+  // 		"face"
       ]
     },
 
