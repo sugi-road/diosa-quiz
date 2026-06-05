@@ -228,6 +228,7 @@ function randomChoicePlayer(){
 function createQuestion(){
 
   let p;
+  let forcedType = null;
 
   // 苦手モード
   if(mode==="weak"){
@@ -246,16 +247,21 @@ function createQuestion(){
       };
     }
 
-    // 苦手選手から選ぶ
-    const weakNo =
-      weakKeys[
-        Math.floor(Math.random()*weakKeys.length)
-      ];
+    // 苦手問題から選ぶ
+const weakItem =
+  weakKeys[
+    Math.floor(Math.random()*weakKeys.length)
+  ];
 
-    p =
-      players.find(player =>
-        String(player.no)===String(weakNo)
-      );
+const [weakNo, weakType] =
+  weakItem.split("_");
+
+forcedType = weakType;
+
+p =
+  players.find(player =>
+    String(player.no)===String(weakNo)
+  );
     
     if(p){
       usedPlayers.push(p.no);
@@ -275,8 +281,15 @@ function createQuestion(){
 
 let type;
 
+// 苦手モードで問題種別固定
+if(forcedType){
+
+  type = forcedType;
+
+}
+
 // 似顔絵専用ページ
-if(forceFaceMode){
+else if(forceFaceMode){
 
   type = "face";
 
@@ -655,6 +668,9 @@ function judge(i){
 
 const pid = current.player?.no;
 
+const weakKey =
+  pid + "_" + current.type;
+
 if(i===current.answer){
 
   document.getElementById("result").innerText="〇";
@@ -665,11 +681,11 @@ if(i===current.answer){
   // 苦手を減らす
   if(mode==="weak" && pid){
 
-    weakMap[pid]=(weakMap[pid]||0)-1;
+    weakMap[weakKey]=(weakMap[weakKey]||0)-1;
 
-    if(weakMap[pid]<=0){
-      delete weakMap[pid];
-    }
+if(weakMap[weakKey]<=0){
+  delete weakMap[weakKey];
+}
 
     saveWeak();
   }
@@ -682,7 +698,7 @@ if(i===current.answer){
   // 苦手登録
   if(pid){
 
-    weakMap[pid]=(weakMap[pid]||0)+1;
+   weakMap[weakKey]=(weakMap[weakKey]||0)+1;
 
     saveWeak();
   }
