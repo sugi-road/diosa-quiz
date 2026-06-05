@@ -41,7 +41,7 @@ const quiz2026 = {
       questions:[
         "number",
         "position",
-        "call",
+        "call"
   // 似顔絵ＯＫでたら、次の行を使う
   // 		"face"
       ]
