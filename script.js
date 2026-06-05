@@ -150,6 +150,9 @@ const maxQuestions=10;
 let correct=0;
 let total=0;
 let usedPlayers = [];
+let retryQuestions = [];
+let retryMode = false;
+let retryTotal = 0;
 
 let weakMap =
 JSON.parse(localStorage.getItem("weakMap")||"{}");
@@ -229,6 +232,15 @@ function createQuestion(){
 
   let p;
   let forcedType = null;
+   if(retryMode && retryQuestions.length>0){
+
+    const retry =
+      retryQuestions.shift();
+
+    p = retry.player;
+    forcedType = retry.type;
+
+  }
 
   // 苦手モード
   if(mode==="weak"){
@@ -272,12 +284,11 @@ p =
       p = randomPlayer();
     }
 
-  } else {
+  }else if(!p){
 
-    p = randomPlayer();
+  p = randomPlayer();
 
-  }
-
+}
 
 let type;
 
@@ -562,12 +573,17 @@ else if(type==="face"){
 
 function nextQ(){
 
-  if(questionCount>=maxQuestions){
+  const limit =
+    retryMode
+      ? retryTotal
+      : maxQuestions;
+
+  if(questionCount>=limit){
     return showResult();
   }
 
-  document.getElementById("progress").innerText =
-    `${questionCount+1}/${maxQuestions}`;
+document.getElementById("progress").innerText =
+  `${questionCount+1}/${limit}`;
 
   current=createQuestion();
 
@@ -695,13 +711,21 @@ if(weakMap[weakKey]<=0){
   document.getElementById("result").innerText="×";
   document.getElementById("result").style.color="#d6001c";
 
-  // 苦手登録
   if(pid){
 
-   weakMap[weakKey]=(weakMap[weakKey]||0)+1;
+    weakMap[weakKey]=(weakMap[weakKey]||0)+1;
 
     saveWeak();
   }
+
+  if(!retryMode){
+
+  retryQuestions.push({
+    player: current.player,
+    type: current.type
+  });
+
+}
 }
 
   total++;
@@ -710,6 +734,9 @@ if(weakMap[weakKey]<=0){
 }
 
 function showResult(){
+   if(retryMode){
+    retryQuestions = [];
+  }
 
   document.getElementById("progress").innerText="";
 
@@ -735,6 +762,33 @@ function showResult(){
   div.appendChild(score);
 
   div.appendChild(btn);
+  if(retryQuestions.length>0){
+
+  let retryBtn =
+    document.createElement("button");
+
+  retryBtn.innerText =
+    `間違いだけ再挑戦 (${retryQuestions.length}問)`;
+
+  retryBtn.onclick = ()=>{
+
+  retryMode = true;
+
+  usedPlayers = [];
+    
+  retryTotal = retryQuestions.length;
+
+  questionCount = 0;
+  correct = 0;
+  total = 0;
+
+  document.getElementById("result").innerText="";
+
+  nextQ();
+};
+
+  div.appendChild(retryBtn);
+}
 }
 
 if(forceFaceMode){
