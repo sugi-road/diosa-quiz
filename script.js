@@ -188,6 +188,9 @@ function setMode(m){
   correct=0;
   total=0;
   usedPlayers = [];
+    if(m==="weak"){
+    weakTotal = Object.keys(weakMap).length;
+  }
 
   nextQ();
 }
@@ -579,18 +582,15 @@ function nextQ(){
 
     limit = retryTotal;
 
-  }else if(mode==="weak"){
+}else if(mode==="weak"){
 
-    const weakCount =
-      Object.keys(weakMap).length;
+  if(weakTotal===0){
+    return showResult();
+  }
 
-    if(weakCount===0){
-      return showResult();
-    }
+  limit = weakTotal;
 
-    limit = weakCount;
-
-  }else{
+}else{
 
     limit = maxQuestions;
 
