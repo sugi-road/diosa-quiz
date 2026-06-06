@@ -153,6 +153,7 @@ let usedPlayers = [];
 let retryQuestions = [];
 let retryMode = false;
 let retryTotal = 0;
+let weakTotal = 0;
 
 let weakMap =
 JSON.parse(localStorage.getItem("weakMap")||"{}");
