@@ -573,27 +573,35 @@ else if(type==="face"){
 
 function nextQ(){
 
-let limit;
+  let limit;
 
-if(retryMode){
+  if(retryMode){
 
-  limit = retryTotal;
+    limit = retryTotal;
 
-}else if(mode==="weak"){
+  }else if(mode==="weak"){
 
-  limit = Math.max(
-    Object.keys(weakMap).length,
-    1
-  );
+    const weakCount =
+      Object.keys(weakMap).length;
 
-}else{
+    if(weakCount===0){
+      return showResult();
+    }
 
-  limit = maxQuestions;
+    limit = weakCount;
 
-}
+  }else{
 
-document.getElementById("progress").innerText =
-  `${questionCount+1}/${limit}`;
+    limit = maxQuestions;
+
+  }
+
+  if(questionCount >= limit){
+    return showResult();
+  }
+
+  document.getElementById("progress").innerText =
+    `${questionCount+1}/${limit}`;
 
   current=createQuestion();
 
