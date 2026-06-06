@@ -758,7 +758,6 @@ alert(
   "\ntotal=" + total +
   "\nquestionCount=" + questionCount +
   "\nmode=" + mode +
-  "\nretryMode=" + retryMode +
   "\nweakTotal=" + weakTotal
 );
    if(retryMode){
