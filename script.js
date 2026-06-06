@@ -166,6 +166,7 @@ function saveWeak(){
 }
 
 function setMode(m){
+  alert("setMode呼び出し : " + m);
 
   mode=m;
 
