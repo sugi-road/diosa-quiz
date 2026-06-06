@@ -254,17 +254,10 @@ function createQuestion(){
 
     const weakKeys = Object.keys(weakMap);
 
-    // 苦手なし
-    if(weakKeys.length===0){
-
-      return {
-        q:"苦手問題がありません！",
-        choices:["通常モードへ"],
-        answer:0,
-        player:null,
-        special:true
-      };
-    }
+// 苦手モード開始時に0件なら終了
+if(weakKeys.length===0){
+  return null;
+}
 
     // 苦手問題から選ぶ
 const weakItem =
@@ -608,6 +601,9 @@ function nextQ(){
     `${questionCount+1}/${limit}`;
 
   current=createQuestion();
+  if(!current){
+  return showResult();
+}
 
 // 特別画面
 if(current.special){
