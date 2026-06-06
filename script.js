@@ -189,9 +189,36 @@ function setMode(m){
   correct=0;
   total=0;
   usedPlayers = [];
-    if(m==="weak"){
-    weakTotal = Object.keys(weakMap).length;
+if(m==="weak"){
+
+  weakTotal = Object.keys(weakMap).length;
+
+  if(weakTotal===0){
+
+    document.getElementById("progress").innerText="";
+
+    document.getElementById("q").innerText =
+      "苦手問題がありません！";
+
+    document.getElementById("result").innerText="";
+
+    const div =
+      document.getElementById("choices");
+
+    div.innerHTML="";
+
+    const btn =
+      document.createElement("button");
+
+    btn.innerText="通常モードへ";
+
+    btn.onclick=()=>setMode("normal");
+
+    div.appendChild(btn);
+
+    return;
   }
+}
 
   nextQ();
 }
@@ -251,7 +278,7 @@ function createQuestion(){
 
     const weakKeys = Object.keys(weakMap);
 
-// 苦手モード開始時に0件なら終了
+// 苦手問題がなくなったら終了
 if(weakKeys.length===0){
   return null;
 }
