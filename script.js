@@ -166,7 +166,6 @@ function saveWeak(){
 }
 
 function setMode(m){
-  alert("setMode呼び出し : " + m);
 
   mode=m;
 
@@ -192,9 +191,6 @@ function setMode(m){
   usedPlayers = [];
     if(m==="weak"){
     weakTotal = Object.keys(weakMap).length;
-     alert(
-    "苦手問題数：" + weakTotal
-  );
   }
 
   nextQ();
@@ -276,10 +272,6 @@ p =
     String(player.no)===String(weakNo)
   );
     
-    if(p){
-      usedPlayers.push(p.no);
-    }
-
     // 保険
     if(!p){
       p = randomPlayer();
