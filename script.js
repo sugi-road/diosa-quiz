@@ -573,14 +573,24 @@ else if(type==="face"){
 
 function nextQ(){
 
-  const limit =
-    retryMode
-      ? retryTotal
-      : maxQuestions;
+let limit;
 
-  if(questionCount>=limit){
-    return showResult();
-  }
+if(retryMode){
+
+  limit = retryTotal;
+
+}else if(mode==="weak"){
+
+  limit = Math.max(
+    Object.keys(weakMap).length,
+    1
+  );
+
+}else{
+
+  limit = maxQuestions;
+
+}
 
 document.getElementById("progress").innerText =
   `${questionCount+1}/${limit}`;
