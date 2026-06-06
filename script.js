@@ -582,10 +582,6 @@ function nextQ(){
 
 }else if(mode==="weak"){
 
-  if(weakTotal===0){
-    return showResult();
-  }
-
   limit = weakTotal;
 
 }else{
@@ -753,13 +749,6 @@ if(weakMap[weakKey]<=0){
 }
 
 function showResult(){
-alert(
-  "correct=" + correct +
-  "\ntotal=" + total +
-  "\nquestionCount=" + questionCount +
-  "\nmode=" + mode +
-  "\nweakTotal=" + weakTotal
-);
    if(retryMode){
     retryQuestions = [];
   }
