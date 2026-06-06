@@ -752,6 +752,12 @@ if(weakMap[weakKey]<=0){
 }
 
 function showResult(){
+    alert(
+    "correct=" + correct +
+    "\ntotal=" + total +
+    "\nquestionCount=" + questionCount +
+    "\nretryMode=" + retryMode
+  );
    if(retryMode){
     retryQuestions = [];
   }
