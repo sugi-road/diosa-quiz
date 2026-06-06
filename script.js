@@ -191,6 +191,9 @@ function setMode(m){
   usedPlayers = [];
     if(m==="weak"){
     weakTotal = Object.keys(weakMap).length;
+     alert(
+    "苦手問題数：" + weakTotal
+  );
   }
 
   nextQ();
