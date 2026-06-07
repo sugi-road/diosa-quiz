@@ -780,9 +780,17 @@ if(pid){
 }
 
 function showResult(){
-   document.getElementById("retryBanner").innerText="";
-   if(retryMode){
+
+  if(retryMode){
+
+    document.querySelectorAll(".mode")
+      .forEach(btn => btn.disabled = false);
+
+    document.getElementById("retryBanner").innerText="";
+
     retryQuestions = [];
+
+    retryMode = false;
   }
 
   document.getElementById("progress").innerText="";
@@ -822,7 +830,8 @@ function showResult(){
   retryBtn.onclick = ()=>{
 
   retryMode = true;
-    
+  document.querySelectorAll(".mode")
+  .forEach(btn => btn.disabled = true);  
   document.getElementById("retryBanner").innerText =
   "🔄 間違えた問題だけ挑戦中！";
 
