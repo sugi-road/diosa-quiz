@@ -802,7 +802,7 @@ function showResult(){
 
   let btn=document.createElement("button");
   btn.className="quizBtn";
-  btn.innerText="もう一度";
+  btn.innerText="通常問題";
 
   btn.onclick=()=>location.reload();
 
