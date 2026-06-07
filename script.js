@@ -797,7 +797,7 @@ function showResult(){
 
   let score=document.createElement("div");
 
-  score.innerText=`最終スコア ${correct}/${total}`;
+  score.innerText=`スコア ${correct}/${total}`;
 
   let btn=document.createElement("button");
   btn.className="quizBtn";
