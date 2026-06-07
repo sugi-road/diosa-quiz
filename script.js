@@ -158,6 +158,22 @@ let weakTotal = 0;
 let weakMap =
 JSON.parse(localStorage.getItem("weakMap")||"{}");
 
+// 旧形式の苦手データを新形式へ変換
+for(const key in weakMap){
+
+  if(!key.includes("_")){
+
+    weakMap[key + "_number"] = weakMap[key];
+
+    delete weakMap[key];
+  }
+}
+
+localStorage.setItem(
+  "weakMap",
+  JSON.stringify(weakMap)
+);
+
 function saveWeak(){
   localStorage.setItem(
     "weakMap",
