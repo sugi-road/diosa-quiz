@@ -292,8 +292,10 @@ const weakItem =
     Math.floor(Math.random()*weakKeys.length)
   ];
 
-const [weakNo, weakType] =
-  weakItem.split("_");
+const parts = weakItem.split("_");
+
+const weakNo = parts[0];
+const weakType = parts[1] || "number";
 
 forcedType = weakType;
 
