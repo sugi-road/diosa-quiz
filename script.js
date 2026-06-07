@@ -225,7 +225,7 @@ if(m==="weak"){
 
     const btn =
       document.createElement("button");
-
+    btn.className="quizBtn";
     btn.innerText="通常モードへ";
 
     btn.onclick=()=>setMode("normal");
@@ -664,7 +664,7 @@ let div=document.getElementById("choices");
   div.innerHTML="";
 
   let btn=document.createElement("button");
-
+  btn.className="quizBtn";
   btn.innerText="通常モードへ";
 
   btn.onclick=()=>setMode("normal");
@@ -805,7 +805,7 @@ function showResult(){
   score.innerText=`最終スコア ${correct}/${total}`;
 
   let btn=document.createElement("button");
-
+  btn.className="quizBtn";
   btn.innerText="もう一度";
 
   btn.onclick=()=>location.reload();
@@ -818,6 +818,8 @@ function showResult(){
   let retryBtn =
     document.createElement("button");
 
+  retryBtn.className="quizBtn";
+    
   retryBtn.innerText =
     `間違いだけ再挑戦 (${retryQuestions.length}問)`;
 
