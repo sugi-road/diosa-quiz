@@ -757,7 +757,12 @@ if(i===current.answer){
 if(weakMap[weakKey]<=0){
   delete weakMap[weakKey];
 }
-
+    
+  alert(
+    "正解後=" +
+    JSON.stringify(weakMap)
+  );
+    
     saveWeak();
   }
 
