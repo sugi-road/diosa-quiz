@@ -150,3 +150,7 @@ a:hover{
 .faceOnly .card{
   padding-top:4px;
 }
+.quizBtn{
+  background:#4fc3f7;
+  color:#fff;
+}
