@@ -291,7 +291,6 @@ function createQuestion(){
 
   // 苦手モード
   if(mode==="weak"){
-  weakTotal = Object.keys(weakMap).length;
   const weakKeys = Object.keys(weakMap);
 
 // 苦手問題がなくなったら終了
