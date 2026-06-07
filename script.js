@@ -182,7 +182,7 @@ function saveWeak(){
 }
 
 function setMode(m){
-
+  document.getElementById("retryBanner").innerText="";
   mode=m;
 
   document.querySelectorAll(".mode")
@@ -780,6 +780,7 @@ if(pid){
 }
 
 function showResult(){
+   document.getElementById("retryBanner").innerText="";
    if(retryMode){
     retryQuestions = [];
   }
@@ -821,6 +822,9 @@ function showResult(){
   retryBtn.onclick = ()=>{
 
   retryMode = true;
+    
+  document.getElementById("retryBanner").innerText =
+  "🔄 間違えた問題だけ挑戦中！";
 
   usedPlayers = [];
     
