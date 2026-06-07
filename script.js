@@ -292,10 +292,7 @@ function createQuestion(){
   // 苦手モード
   if(mode==="weak"){
   weakTotal = Object.keys(weakMap).length;
-
-  alert(JSON.stringify(weakMap));
-    
-    const weakKeys = Object.keys(weakMap);
+  const weakKeys = Object.keys(weakMap);
 
 // 苦手問題がなくなったら終了
 if(weakKeys.length===0){
@@ -756,13 +753,7 @@ if(i===current.answer){
 
 if(weakMap[weakKey]<=0){
   delete weakMap[weakKey];
-}
-    
-  alert(
-    "正解後=" +
-    JSON.stringify(weakMap)
-  );
-    
+} 
     saveWeak();
   }
 
