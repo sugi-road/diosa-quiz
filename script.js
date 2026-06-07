@@ -749,11 +749,7 @@ if(i===current.answer){
   // 苦手を減らす
   if(mode==="weak" && pid){
 
-    weakMap[weakKey]=(weakMap[weakKey]||0)-1;
-
-if(weakMap[weakKey]<=0){
-  delete weakMap[weakKey];
-} 
+delete weakMap[weakKey];
     saveWeak();
   }
 
@@ -762,12 +758,12 @@ if(weakMap[weakKey]<=0){
   document.getElementById("result").innerText="×";
   document.getElementById("result").style.color="#d6001c";
 
-  if(pid){
+if(pid){
 
-    weakMap[weakKey]=(weakMap[weakKey]||0)+1;
+  weakMap[weakKey] = 1;
 
-    saveWeak();
-  }
+  saveWeak();
+}
 
   if(!retryMode){
 
