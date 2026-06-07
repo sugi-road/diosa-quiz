@@ -154,3 +154,10 @@ a:hover{
   background:#4fc3f7;
   color:#fff;
 }
+#retryBanner{
+  color:#4fc3f7;
+  font-weight:bold;
+  text-align:center;
+  margin-bottom:6px;
+  min-height:20px;
+}
