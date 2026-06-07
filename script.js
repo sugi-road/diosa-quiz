@@ -226,7 +226,7 @@ if(m==="weak"){
     const btn =
       document.createElement("button");
     btn.className="quizBtn";
-    btn.innerText="通常モードへ";
+    btn.innerText="通常問題へ";
 
     btn.onclick=()=>setMode("normal");
 
@@ -664,7 +664,7 @@ let div=document.getElementById("choices");
 
   let btn=document.createElement("button");
   btn.className="quizBtn";
-  btn.innerText="通常モードへ";
+  btn.innerText="通常問題へ";
 
   btn.onclick=()=>setMode("normal");
 
