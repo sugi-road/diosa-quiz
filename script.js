@@ -786,7 +786,7 @@ function showResult(){
 
   document.getElementById("progress").innerText="";
 
-  document.getElementById("q").innerText="終了！";
+  document.getElementById("q").innerText="　　";
 
   document.getElementById("result").innerText="";
   document.getElementById("photoArea").innerHTML="";
