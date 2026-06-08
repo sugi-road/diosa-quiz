@@ -779,14 +779,14 @@ if(pid){
 
 function showResult(){
 
+  const wasRetryMode = retryMode;
+
   if(retryMode){
 
     document.querySelectorAll(".mode")
       .forEach(btn => btn.disabled = false);
 
     document.getElementById("retryBanner").innerText="";
-
-    retryQuestions = [];
 
     retryMode = false;
   }
