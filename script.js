@@ -442,27 +442,24 @@ else if(type==="position"){
 
   qText=`${p.name}のポジションは？`;
 
-  choices=["GK","DF","MF","FW"];
+choices=["FW","MF","DF","GK"];
 
-  // 初級は3択化
-  if(choiceCount===3){
+// 初級は1つだけランダム削除
+if(choiceCount===3){
 
-    while(choices.length>3){
+  const wrongChoices =
+    choices.filter(c => c !== p.pos);
 
-      const removeIndex =
-        Math.floor(Math.random()*choices.length);
+  const removePos =
+    wrongChoices[
+      Math.floor(Math.random()*wrongChoices.length)
+    ];
 
-      // 正解は消さない
-      if(choices[removeIndex]!==p.pos){
-        choices.splice(removeIndex,1);
-      }
-    }
-  }
-
-  choices=shuffle(choices);
-
-  answer=choices.indexOf(p.pos);
+  choices =
+    choices.filter(c => c !== removePos);
 }
+
+answer=choices.indexOf(p.pos);
 
 else if(type==="call"){
 
