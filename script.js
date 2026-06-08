@@ -460,6 +460,7 @@ if(choiceCount===3){
 }
 
 answer=choices.indexOf(p.pos);
+}
 
 else if(type==="call"){
 
