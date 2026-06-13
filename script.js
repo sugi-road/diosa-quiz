@@ -4,7 +4,8 @@ const year = params.get("year") || "2026";
 const level = params.get("level") || "beginner";
 const forceFaceMode =
   params.get("faceonly")==="1";
-
+const forceWeakMode =
+  params.get("weak")==="1";
 
 let quizData;
 
@@ -853,6 +854,10 @@ function showResult(){
 if(forceFaceMode){
 
   setMode("face");
+
+}else if(forceWeakMode){
+
+  setMode("weak");
 
 }else{
 
