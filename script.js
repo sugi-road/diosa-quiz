@@ -817,20 +817,22 @@ function showResult(){
 
   div.innerHTML="";
 
-  let score=document.createElement("div");
+let score=document.createElement("div");
 
-  score.innerText=`スコア ${correct}/${total}`;
+score.innerText=`スコア ${correct}/${total}`;
+
+div.appendChild(score);
 
 if(!forceWeakMode){
 
   let btn=document.createElement("button");
+
   btn.className="quizBtn";
   btn.innerText="通常問題";
 
   btn.onclick=()=>location.reload();
 
   div.appendChild(btn);
-
 }
   if(retryQuestions.length>0){
 
