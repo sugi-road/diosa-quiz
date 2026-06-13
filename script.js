@@ -238,14 +238,15 @@ if(m==="weak"){
 
     div.innerHTML="";
 
-    const btn =
-      document.createElement("button");
-    btn.className="quizBtn";
-    btn.innerText="通常問題へ";
+const btn =
+  document.createElement("button");
 
-    btn.onclick=()=>setMode("normal");
+btn.className="quizBtn";
+btn.innerText="トップへ戻る";
 
-    div.appendChild(btn);
+btn.onclick=()=>location.href="index.html";
+
+div.appendChild(btn);
 
     return;
   }
