@@ -47,6 +47,14 @@ if(forceWeakMode){
 
   document.getElementById("title").innerText =
     "苦手克服編";
+
+  // モードボタン全体を非表示
+  const modeWrap =
+    document.querySelector(".modeWrap");
+
+  if(modeWrap){
+    modeWrap.style.display = "none";
+  }
 }
 
 // 似顔絵専用ページ
