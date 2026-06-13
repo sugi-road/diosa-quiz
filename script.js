@@ -43,6 +43,12 @@ const players = quiz2026.players;
 document.getElementById("title").innerText =
   quizData.title;
 
+if(forceWeakMode){
+
+  document.getElementById("title").innerText =
+    "ディオッサ出雲クイズ（苦手克服編）";
+}
+
 // 似顔絵専用ページ
 if(forceFaceMode){
 
