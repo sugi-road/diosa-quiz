@@ -821,15 +821,17 @@ function showResult(){
 
   score.innerText=`スコア ${correct}/${total}`;
 
+if(!forceWeakMode){
+
   let btn=document.createElement("button");
   btn.className="quizBtn";
   btn.innerText="通常問題";
 
   btn.onclick=()=>location.reload();
 
-  div.appendChild(score);
-
   div.appendChild(btn);
+
+}
   if(retryQuestions.length>0){
 
   let retryBtn =
