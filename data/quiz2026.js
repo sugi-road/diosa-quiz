@@ -68,8 +68,8 @@ const quiz2026 = {
 
       questions:[
         "number",
-        "position",
-        "call",
+     //"position",
+     // "call",
         "birthplace",
         "joinYear",
         "company"
