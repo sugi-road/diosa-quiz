@@ -54,8 +54,9 @@ const quiz2026 = {
 
       questions:[
         "number",
+        "position",
+        "call",
         "birthplace",
-        "company",
         "joinYear"
       ]
     },
@@ -70,9 +71,9 @@ const quiz2026 = {
         "position",
         "call",
         "birthplace",
-        "company",
-        "joinYear"
-      ]
+        "joinYear",
+        "company"
+              ]
     }
   }
 };
