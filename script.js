@@ -46,7 +46,7 @@ document.getElementById("title").innerText =
 if(forceWeakMode){
 
   document.getElementById("title").innerText =
-    "ディオッサ出雲クイズ（苦手克服編）";
+    "苦手克服編";
 }
 
 // 似顔絵専用ページ
