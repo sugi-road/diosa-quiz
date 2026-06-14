@@ -281,6 +281,15 @@ function randomChoicePlayer(){
   ];
 }
 
+function displayName(name){
+
+  if(level === "advanced"){
+    return name.split("(")[0];
+  }
+
+  return name;
+}
+
 function createQuestion(){
 
   let p;
@@ -425,7 +434,7 @@ answer=choices.indexOf(
   } else {
 
     // 名前→番号
-    qText=`${p.name}の背番号は？`;
+    qText=`${displayName(p.name)}の背番号は？`;
 
     choices=[p.no];
 
@@ -446,7 +455,7 @@ answer=choices.indexOf(
 
 else if(type==="position"){
 
-  qText=`${p.name}のポジションは？`;
+  qText=`${displayName(p.name)}のポジションは？`;
 
 choices=["FW","MF","DF","GK"];
 
@@ -515,8 +524,8 @@ else if(type==="call"){
 
   else if(type==="birthplace"){
 
-    qText=`${p.name}の出身地は？`;
-
+    qText=`${displayName(p.name)}の出身地は？`;
+    
     choices=[p.from];
 
     while(choices.length<choiceCount){
@@ -535,7 +544,7 @@ else if(type==="call"){
 
   else if(type==="company"){
 
-    qText=`${p.name}の雇用企業は？`;
+    qText=`${displayName(p.name)}の雇用企業は？`;
 
     choices=[p.company];
 
@@ -577,7 +586,7 @@ else if(type==="face"){
 
     const currentYear=2026;
 
-    qText=`${p.name}は何年目？`;
+    qText=`${displayName(p.name)}は何年目？`;
 
     const correctText =
       `${currentYear-p.join+1}年目`;
