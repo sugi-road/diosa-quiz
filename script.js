@@ -544,7 +544,7 @@ else if(type==="call"){
 
   else if(type==="company"){
 
-    qText=`${displayName(p.name)}の雇用企業は？`;
+    qText=`${displayName(p.name)}の所属先は？`;
 
     choices=[p.company];
 
