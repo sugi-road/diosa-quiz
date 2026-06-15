@@ -176,8 +176,6 @@ const playerComments = {
 
 };
 
-let current = 0;
-
 let userScore = {
  attack:0,
  speed:0,
@@ -189,7 +187,7 @@ let userScore = {
  future:0
 };
 
-showQuestion();
+startDiagnosis();
 
 function calculateDiagnosis(user){
 
@@ -220,17 +218,6 @@ return results.slice(0,3);
 }
 
 let diagnosisIndex = 0;
-
-let userScore = {
-  attack:0,
-  speed:0,
-  defense:0,
-  technique:0,
-  veteran:0,
-  passion:0,
-  lovable:0,
-  future:0
-};
 
 function startDiagnosis(){
 
