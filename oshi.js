@@ -176,6 +176,8 @@ const playerComments = {
 
 };
 
+let diagnosisIndex = 0;
+
 let userScore = {
  attack:0,
  speed:0,
@@ -186,8 +188,6 @@ let userScore = {
  lovable:0,
  future:0
 };
-
-startDiagnosis();
 
 function calculateDiagnosis(user){
 
@@ -302,4 +302,4 @@ function showDiagnosisResult(){
     </button>
   `;
 }
-
+startDiagnosis();
