@@ -193,7 +193,6 @@ function calculateDiagnosis(user){
 
 const results = players.map(player => {
 
-```
 const score =
   user.attack   * player.attack +
   user.speed    * player.speed +
@@ -208,7 +207,6 @@ return {
   name: player.name,
   score: score
 };
-```
 
 });
 
