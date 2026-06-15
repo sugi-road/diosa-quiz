@@ -165,3 +165,21 @@ a:hover{
 .mode:disabled{
   opacity:0.5;
 }
+
+
+#q{
+  font-size:1.3rem;
+  margin:20px 0;
+}
+
+#choices{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+#choices button{
+  padding:15px;
+  font-size:1rem;
+  border-radius:10px;
+}
