@@ -215,8 +215,6 @@ results.sort((a,b)=>b.score-a.score);
 return results.slice(0,3);
 }
 
-let diagnosisIndex = 0;
-
 function startDiagnosis(){
 
   diagnosisIndex = 0;
