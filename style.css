@@ -71,12 +71,6 @@ h1,h2{
   margin-bottom:5px;
 }
 
-#qWrap{
-  margin:4px 0;
-  text-align:left;
-  min-height:48px;
-}
-
 #q{
   flex:1;
 }
