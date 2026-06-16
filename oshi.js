@@ -4,8 +4,8 @@ q: "試合で一番見たいプレーは？",
 choices: [
 { text: "豪快なゴール", score: { attack: 3 } },
 { text: "スピード突破", score: { speed: 3 } },
-{ text: "相手を止める守備", score: { defense: 3 } },
-{ text: "華麗なテクニック", score: { technique: 3 } }
+{ text: "華麗なテクニック", score: { technique: 3 } },
+{ text: "相手を止める守備", score: { defense: 3 } }
 ]
 },
 {
@@ -13,8 +13,8 @@ q: "推し選手に一番求めるものは？",
 choices: [
 { text: "得点を決める力", score: { attack: 3 } },
 { text: "足の速さ", score: { speed: 3 } },
-{ text: "守備の安定感", score: { defense: 3 } },
-{ text: "ボール扱いの上手さ", score: { technique: 3 } }
+{ text: "ボール扱いの上手さ", score: { technique: 3 } },
+{ text: "守備の安定感", score: { defense: 3 } }
 ]
 },
 {
@@ -22,8 +22,8 @@ q: "もし自分が監督なら、チームに欲しいのは？",
 choices: [
 { text: "エースストライカー", score: { attack: 3 } },
 { text: "快足ウイング", score: { speed: 3 } },
-{ text: "守備の要", score: { defense: 3 } },
-{ text: "ゲームメーカー", score: { technique: 3 } }
+{ text: "ゲームメーカー", score: { technique: 3 } },
+{ text: "守備の要", score: { defense: 3 } }
 ]
 },
 {
@@ -31,16 +31,16 @@ q: "試合中に一番盛り上がる瞬間は？",
 choices: [
 { text: "ゴールが決まった時", score: { attack: 2 } },
 { text: "相手を置き去りにした時", score: { speed: 2 } },
-{ text: "スーパークリアした時", score: { defense: 2 } },
-{ text: "見事なパスが通った時", score: { technique: 2 } }
+{ text: "見事なパスが通った時", score: { technique: 2 } },
+{ text: "スーパークリアした時", score: { defense: 2 } }
 ]
 },
 {
 q: "推し選手の年齢なら？",
 choices: [
+{ text: "年齢は気にしない", score: { passion: 1 } },
 { text: "ベテランが好き", score: { veteran: 3 } },
 { text: "若手が好き", score: { future: 3 } },
-{ text: "年齢は気にしない", score: { passion: 1 } },
 { text: "人柄重視", score: { lovable: 3 } }
 ]
 },
@@ -85,8 +85,8 @@ q: "ディオッサ出雲の試合で応援するなら？",
 choices: [
 { text: "ゴールを期待する", score: { attack: 2 } },
 { text: "突破を期待する", score: { speed: 2 } },
-{ text: "無失点を期待する", score: { defense: 2 } },
-{ text: "華麗なプレーを期待する", score: { technique: 2 } }
+{ text: "華麗なプレーを期待する", score: { technique: 2 } },
+{ text: "無失点を期待する", score: { defense: 2 } }
 ]
 }
 ];
