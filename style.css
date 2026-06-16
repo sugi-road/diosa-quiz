@@ -71,7 +71,7 @@ h1,h2{
   margin-bottom:5px;
 }
 
-#qWrap{
+Wrap{
   text-align:left;
   min-height:48px;
 }
@@ -168,6 +168,10 @@ a:hover{
 
 /* 推し診断専用 */
 
+.oshiPage #q{
+  text-align:left;
+  padding-left:10px;
+}
 .oshiPage #choices{
   display:flex;
   flex-direction:column;
