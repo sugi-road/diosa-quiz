@@ -259,8 +259,9 @@ function showDiagnosisQuestion(){
     const btn =
       document.createElement("button");
 
-    btn.textContent = choice.text;
+   btn.className = "choice";
 
+   btn.textContent = choice.text;
     btn.onclick = ()=>answerDiagnosis(choice);
 
     choices.appendChild(btn);
