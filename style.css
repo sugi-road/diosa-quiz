@@ -71,6 +71,10 @@ h1,h2{
   margin-bottom:5px;
 }
 
+#qWrap{
+  margin:0;
+}
+
 #q{
   flex:1;
 }
@@ -86,6 +90,7 @@ h1,h2{
   height:28px;
   margin-bottom:2px;
   padding-right:5px;
+  min-height:28px;
 }
 
 .choice{
