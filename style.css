@@ -72,7 +72,9 @@ h1,h2{
 }
 
 #qWrap{
-  margin:0;
+ text-align:left;
+ margin:0;
+ min-height:48px;
 }
 
 #q{
