@@ -47,10 +47,10 @@ choices: [
 {
 q: "応援したくなるのは？",
 choices: [
-{ text: "頼れるベテラン", score: { veteran: 3 } },
-{ text: "伸び盛りの若手", score: { future: 3 } },
-{ text: "気持ちを前面に出す選手", score: { passion: 3 } },
-{ text: "愛嬌のある選手", score: { lovable: 3 } }
+{ text: "主力として活躍する選手", score: { veteran: 3 } },
+{ text: "途中出場で流れを変える選手", score: { passion: 3 } },
+{ text: "これから出番を増やす選手", score: { future: 3 } },
+{ text: "ケガから復帰を目指す選手", score: { lovable: 3 } }
 ]
 },
 {
@@ -63,12 +63,12 @@ choices: [
 ]
 },
 {
-q: "試合後に話してみたいのは？",
+q: "出身地で気になるのは？",
 choices: [
-{ text: "経験談を聞きたい", score: { veteran: 2 } },
-{ text: "試合への想いを聞きたい", score: { passion: 2 } },
-{ text: "趣味や普段の話を聞きたい", score: { lovable: 2 } },
-{ text: "今後の目標を聞きたい", score: { future: 2 } }
+{ text: "特に気にしない", score: {} },
+{ text: "島根県出身", score: { local: 3 } },
+{ text: "中国地方出身", score: { chugoku: 3 } },
+{ text: "遠方出身", score: { far: 3 } }
 ]
 },
 {
@@ -187,6 +187,9 @@ let userScore = {
  passion:0,
  lovable:0,
  future:0
+ local:0,
+ chugoku:0,
+ far:0
 };
 
 function calculateDiagnosis(user){
