@@ -9,21 +9,21 @@ choices: [
 ]
 },
 {
-q: "推し選手に一番求めるものは？",
+q: "応援するとしたら？",
 choices: [
-{ text: "得点を決める力", score: { attack: 3 } },
-{ text: "足の速さ", score: { speed: 3 } },
-{ text: "ボール扱いの上手さ", score: { technique: 3 } },
-{ text: "守備の安定感", score: { defense: 3 } }
+{ text:"エース選手", score:{ attack:2 } },
+{ text:"ムードメーカー", score:{ lovable:2 } },
+{ text:"若手選手", score:{ future:2 } },
+{ text:"ベテラン選手", score:{ veteran:2 } }
 ]
 },
 {
-q: "もし自分が監督なら、チームに欲しいのは？",
+q: "好きな物語は？",
 choices: [
-{ text: "エースストライカー", score: { attack: 3 } },
-{ text: "快足ウイング", score: { speed: 3 } },
-{ text: "ゲームメーカー", score: { technique: 3 } },
-{ text: "守備の要", score: { defense: 3 } }
+{ text:"逆転劇", score:{ passion:2 } },
+{ text:"成長物語", score:{ future:2 } },
+{ text:"職人の活躍", score:{ defense:2 } },
+{ text:"天才のひらめき", score:{ technique:2 } }
 ]
 },
 {
