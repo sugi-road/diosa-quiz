@@ -81,12 +81,12 @@ choices: [
 ]
 },
 {
-q: "ディオッサ出雲の試合で応援するなら？",
+q: "推し選手に一番感じたいのは？",
 choices: [
-{ text: "ゴールを期待する", score: { attack: 2 } },
-{ text: "突破を期待する", score: { speed: 2 } },
-{ text: "華麗なプレーを期待する", score: { technique: 2 } },
-{ text: "無失点を期待する", score: { defense: 2 } }
+{ text:"ワクワク", score:{ attack:2 } },
+{ text:"安心感", score:{ defense:2 } },
+{ text:"親近感", score:{ lovable:2 } },
+{ text:"将来への期待", score:{ future:2 } }
 ]
 }
 ];
