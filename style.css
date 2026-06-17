@@ -109,6 +109,10 @@ h1,h2{
   justify-content:center;
 }
 
+.oshiPage .choice{
+  margin:2px 0;
+}
+
 button{
   margin:5px;
   padding:10px 20px;
@@ -178,7 +182,7 @@ a:hover{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px;
+  gap:2px;
 }
 
 .oshiPage #choices button{
