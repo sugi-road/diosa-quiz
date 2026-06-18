@@ -236,3 +236,9 @@ a:hover{
 .resultIndent{
   padding-left:1em;
 }
+
+.resultName{
+  color:#ff7a00;
+  margin:0;
+  padding-left:1em;
+}
