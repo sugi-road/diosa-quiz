@@ -416,7 +416,7 @@ document.getElementById("q").innerHTML = `
     あなたの推しは
   </div>
 
-<h1 class="resultIndent" style="margin:4px 0;">
+<h1 class="resultIndent">
   ${winner.name}
 </h1>
 
