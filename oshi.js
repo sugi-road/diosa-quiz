@@ -402,15 +402,28 @@ answerHistory.forEach((item,index)=>{
   const secondInfo = getPlayerInfo(top3[1].name);
   const thirdInfo = getPlayerInfo(top3[2].name);
 
-  document.getElementById("q").innerHTML = `
-    <h2>診断結果</h2>
+document.getElementById("q").innerHTML = `
+  <h2 style="color:#000;">
+    診断結果
+  </h2>
 
-    <h1>${winner.name}</h1>
+  <div style="
+    color:#ff7a00;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:4px;
+  ">
+    あなたの推しは
+  </div>
 
-    <p>
+  <h1 style="margin:4px 0;">
+    ${winner.name}
+  </h1>
+
+  <p style="margin-top:2px;">
     背番号${winnerInfo.no}
     ／ ${winnerInfo.pos}
-    </p>
+  </p>
 
     <p>${playerComments[winner.name]}</p>
 
