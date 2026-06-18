@@ -192,6 +192,8 @@ let userScore = {
  far:0
 };
 
+let answerHistory = [];
+
 function getPlayerInfo(playerName){
 
   return quiz2026.players.find(p => {
@@ -202,6 +204,29 @@ function getPlayerInfo(playerName){
 
   });
 
+}
+
+function startDiagnosis(){
+
+  diagnosisIndex = 0;
+
+  answerHistory = [];
+
+  userScore = {
+    attack:0,
+    speed:0,
+    defense:0,
+    technique:0,
+    veteran:0,
+    passion:0,
+    lovable:0,
+    future:0,
+    local:0,
+    chugoku:0,
+    far:0
+  };
+
+  showDiagnosisQuestion();
 }
 
 function calculateDiagnosis(user){
@@ -283,6 +308,11 @@ function showDiagnosisQuestion(){
 
 function answerDiagnosis(choice){
 
+  answerHistory.push({
+    question: diagnosisQuestions[diagnosisIndex].q,
+    answer: choice.text
+  });
+
   for(let key in choice.score){
     userScore[key] += choice.score[key];
   }
@@ -290,10 +320,81 @@ function answerDiagnosis(choice){
   diagnosisIndex++;
 
   if(diagnosisIndex >= diagnosisQuestions.length){
-    showDiagnosisResult();
+    showConfirmScreen();
   }else{
     showDiagnosisQuestion();
   }
+}
+
+function showConfirmScreen(){
+
+  let html = "<h2>回答確認</h2>";
+
+  answerHistory.forEach((item,index)=>{
+
+    html += `
+      <div style="
+        text-align:left;
+        margin:8px 0;
+        padding:8px;
+        border-bottom:1px solid #ccc;
+      ">
+        <b>Q${index+1}. ${item.question}</b><br>
+        → ${item.answer}
+        <br>
+        <button onclick="editQuestion(${index})">
+          この問題を修正
+        </button>
+      </div>
+    `;
+  });
+
+  document.getElementById("q").innerHTML = html;
+
+  document.getElementById("choices").innerHTML = `
+    <button onclick="showDiagnosisResult()">
+      この内容で診断する
+    </button>
+  `;
+}
+
+function editQuestion(index){
+
+  diagnosisIndex = index;
+
+  userScore = {
+    attack:0,
+    speed:0,
+    defense:0,
+    technique:0,
+    veteran:0,
+    passion:0,
+    lovable:0,
+    future:0,
+    local:0,
+    chugoku:0,
+    far:0
+  };
+
+  answerHistory = answerHistory.slice(0,index);
+
+  for(let i=0;i<index;i++){
+
+    const q = diagnosisQuestions[i];
+
+    const selected =
+      q.choices.find(
+        c => c.text === answerHistory[i].answer
+      );
+
+    if(selected){
+      for(let key in selected.score){
+        userScore[key] += selected.score[key];
+      }
+    }
+  }
+
+  showDiagnosisQuestion();
 }
 
 function showDiagnosisResult(){
