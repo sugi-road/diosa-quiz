@@ -307,8 +307,8 @@ function answerDiagnosis(choice){
 
 function showConfirmScreen(){
 
-  let html = "<h2>回答確認</h2>";
-
+  let html = '<h2 class="confirmTitle">回答確認</h2>';
+ 
   answerHistory.forEach((item,index)=>{
 
     html += `
