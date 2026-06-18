@@ -206,7 +206,7 @@ function getPlayerInfo(playerName){
 
 }
 
-function startDiagnosis(){
+function startDiagnosis()
 
   diagnosisIndex = 0;
 
