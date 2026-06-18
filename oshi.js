@@ -420,10 +420,10 @@ document.getElementById("q").innerHTML = `
     ${winner.name}
   </h1>
 
-  <p style="margin-top:2px;">
-    背番号${winnerInfo.no}
-    ／ ${winnerInfo.pos}
-  </p>
+<p class="winnerInfo">
+背番号${winnerInfo.no}
+／ ${winnerInfo.pos}
+</p>
 
     <p>${playerComments[winner.name]}</p>
 
