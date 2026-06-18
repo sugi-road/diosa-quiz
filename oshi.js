@@ -416,17 +416,13 @@ document.getElementById("q").innerHTML = `
     あなたの推しは
   </div>
 
-<h1 style="
-  margin:4px 0;
-  position:relative;
-  left:0.5em;
-">
+<h1 class="resultIndent" style="margin:4px 0;">
   ${winner.name}
 </h1>
 
-<p class="winnerInfo">
-背番号${winnerInfo.no}
-/ ${winnerInfo.pos}
+<p class="winnerInfo resultIndent">
+  背番号${winnerInfo.no}
+  / ${winnerInfo.pos}
 </p>
 
     <p>${playerComments[winner.name]}</p>
