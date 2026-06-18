@@ -426,7 +426,7 @@ document.getElementById("q").innerHTML = `
 
 <p class="winnerInfo">
 背番号${winnerInfo.no}
-／ ${winnerInfo.pos}
+/ ${winnerInfo.pos}
 </p>
 
     <p>${playerComments[winner.name]}</p>
@@ -437,7 +437,7 @@ document.getElementById("q").innerHTML = `
 🥈2位：${top3[1].name}<br>
 <span class="rankInfo">
 背番号${secondInfo.no}
-／ ${secondInfo.pos}
+/ ${secondInfo.pos}
 </span>
 </p>
 
