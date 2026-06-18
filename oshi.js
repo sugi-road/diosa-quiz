@@ -258,27 +258,6 @@ results.sort((a,b)=>b.score-a.score);
 return results.slice(0,3);
 }
 
-function startDiagnosis(){
-
-  diagnosisIndex = 0;
-
-userScore = {
-  attack:0,
-  speed:0,
-  defense:0,
-  technique:0,
-  veteran:0,
-  passion:0,
-  lovable:0,
-  future:0,
-  local:0,
-  chugoku:0,
-  far:0
-};
-
-  showDiagnosisQuestion();
-}
-
 function showDiagnosisQuestion(){
 
   const q = diagnosisQuestions[diagnosisIndex];
