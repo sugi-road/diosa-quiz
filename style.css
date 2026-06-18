@@ -230,3 +230,8 @@ a:hover{
   display:inline-block;
   margin-left:4em;
 }
+
+.resultIndent{
+  position:relative;
+  left:0.5em;
+}
