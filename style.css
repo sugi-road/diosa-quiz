@@ -225,3 +225,9 @@ a:hover{
   font-weight:bold;
   margin-top:0px;
 }
+
+.rankInfo{
+  display:inline-block;
+  margin-left:3.5em;
+  color:#ff7a00;
+}
