@@ -441,7 +441,7 @@ document.getElementById("q").innerHTML = `
 🥉3位：${top3[2].name}<br>
 <span class="rankInfo">
 背番号${thirdInfo.no}
-／ ${thirdInfo.pos}
+/ ${thirdInfo.pos}
 </span>
 </p>
   `;
