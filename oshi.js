@@ -194,6 +194,8 @@ let userScore = {
 
 let answerHistory = [];
 
+let editingMode = false;
+
 function getPlayerInfo(playerName){
 
   return quiz2026.players.find(p => {
@@ -287,10 +289,24 @@ function showDiagnosisQuestion(){
 
 function answerDiagnosis(choice){
 
+if(editingMode){
+
+  answerHistory[diagnosisIndex].answer =
+    choice.text;
+
+  editingMode = false;
+
+  showConfirmScreen();
+  return;
+
+}else{
+
   answerHistory.push({
     question: diagnosisQuestions[diagnosisIndex].q,
     answer: choice.text
   });
+
+}
 
   for(let key in choice.score){
     userScore[key] += choice.score[key];
@@ -342,7 +358,11 @@ function showConfirmScreen(){
 
 function editQuestion(index){
 
+  editingMode = true;
   diagnosisIndex = index;
+
+  showDiagnosisQuestion();
+}
 
   userScore = {
     attack:0,
