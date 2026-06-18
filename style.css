@@ -223,7 +223,8 @@ a:hover{
 .winnerInfo{
   color:#ff7a00;
   font-weight:bold;
-  margin-top:0px;
+  margin-top:0;
+  margin-left:1em;
 }
 
 .rankInfo{
@@ -232,6 +233,5 @@ a:hover{
 }
 
 .resultIndent{
-  position:relative;
-  left:0.5em;
+  padding-left:1em;
 }
