@@ -429,17 +429,21 @@ document.getElementById("q").innerHTML = `
 
     <hr>
 
-    <p>
-    🥈2位：${top3[1].name}<br>
-    背番号${secondInfo.no}
-    ／ ${secondInfo.pos}
-    </p>
+<p>
+🥈2位：${top3[1].name}<br>
+<span class="rankInfo">
+背番号${secondInfo.no}
+／ ${secondInfo.pos}
+</span>
+</p>
 
-    <p>
-    🥉3位：${top3[2].name}<br>
-    背番号${thirdInfo.no}
-    ／ ${thirdInfo.pos}
-    </p>
+<p>
+🥉3位：${top3[2].name}<br>
+<span class="rankInfo">
+背番号${thirdInfo.no}
+／ ${thirdInfo.pos}
+</span>
+</p>
   `;
 
   document.getElementById("choices").innerHTML = `
