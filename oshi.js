@@ -68,7 +68,7 @@ choices: [
 { text: "特に気にしない", score: {} },
 { text: "島根県出身", score: { local: 4 } },
 { text: "中国地方出身", score: { chugoku: 4 } },
-{ text: "全国から来た選手", score: { far: 4 } }
+{ text: "全国から集まった選手", score: { far: 4 } }
 ]
 },
 {
