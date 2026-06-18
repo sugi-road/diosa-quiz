@@ -365,6 +365,34 @@ function editQuestion(index){
 }
 
 function showDiagnosisResult(){
+ userScore = {
+  attack:0,
+  speed:0,
+  defense:0,
+  technique:0,
+  veteran:0,
+  passion:0,
+  lovable:0,
+  future:0,
+  local:0,
+  chugoku:0,
+  far:0
+};
+
+answerHistory.forEach((item,index)=>{
+
+  const selected =
+    diagnosisQuestions[index].choices.find(
+      c => c.text === item.answer
+    );
+
+  if(selected){
+    for(let key in selected.score){
+      userScore[key] += selected.score[key];
+    }
+  }
+
+});
 
   const top3 = calculateDiagnosis(userScore);
 
