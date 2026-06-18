@@ -364,41 +364,6 @@ function editQuestion(index){
   showDiagnosisQuestion();
 }
 
-  userScore = {
-    attack:0,
-    speed:0,
-    defense:0,
-    technique:0,
-    veteran:0,
-    passion:0,
-    lovable:0,
-    future:0,
-    local:0,
-    chugoku:0,
-    far:0
-  };
-
-  answerHistory = answerHistory.slice(0,index);
-
-  for(let i=0;i<index;i++){
-
-    const q = diagnosisQuestions[i];
-
-    const selected =
-      q.choices.find(
-        c => c.text === answerHistory[i].answer
-      );
-
-    if(selected){
-      for(let key in selected.score){
-        userScore[key] += selected.score[key];
-      }
-    }
-  }
-
-  showDiagnosisQuestion();
-}
-
 function showDiagnosisResult(){
 
   const top3 = calculateDiagnosis(userScore);
