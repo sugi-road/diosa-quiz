@@ -419,7 +419,7 @@ document.getElementById("q").innerHTML = `
 <h1 style="
   margin:4px 0;
   position:relative;
-  left:2em;
+  left:0.5em;
 ">
   ${winner.name}
 </h1>
