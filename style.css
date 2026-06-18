@@ -213,3 +213,9 @@ a:hover{
 .confirmTitle{
   color:#0b4ea2;
 }
+
+.winnerInfo{
+  color:#ff7a00;
+  font-weight:bold;
+  margin-top:4px;
+}
