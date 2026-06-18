@@ -416,11 +416,11 @@ document.getElementById("q").innerHTML = `
     あなたの推しは
   </div>
 
-<h1 class="resultIndent">
+<h1 class="resultName">
   ${winner.name}
 </h1>
 
-<p class="winnerInfo resultIndent">
+<p class="winnerInfo">
   背番号${winnerInfo.no}
   / ${winnerInfo.pos}
 </p>
