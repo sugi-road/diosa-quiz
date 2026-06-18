@@ -220,21 +220,20 @@ a:hover{
   padding-left:1em;
 }
 
+.resultIndent{
+  padding-left:1em;
+}
+
 .winnerInfo{
   color:#ff7a00;
   font-weight:bold;
   margin-top:0;
   margin-bottom:0;
-  margin-left:1em;
 }
 
 .rankInfo{
   display:inline-block;
   margin-left:4em;
-}
-
-.resultIndent{
-  padding-left:1em;
 }
 
 .resultName{
