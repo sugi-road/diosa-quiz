@@ -321,7 +321,10 @@ function showConfirmScreen(){
         <b>Q${index+1}. ${item.question}</b><br>
         → ${item.answer}
         <br>
-        <button onclick="editQuestion(${index})">
+        <button
+          class="editBtn"
+          onclick="editQuestion(${index})"
+        >
           この問題を修正
         </button>
       </div>
