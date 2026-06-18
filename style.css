@@ -214,6 +214,12 @@ a:hover{
   color:#0b4ea2;
 }
 
+.winnerName{
+  color:#ff7a00;
+  margin-bottom:4px;
+  padding-left:1em;
+}
+
 .winnerInfo{
   color:#ff7a00;
   font-weight:bold;
