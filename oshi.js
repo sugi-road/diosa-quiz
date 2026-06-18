@@ -192,6 +192,18 @@ let userScore = {
  far:0
 };
 
+function getPlayerInfo(playerName){
+
+  return quiz2026.players.find(p => {
+
+    const shortName = p.name.split("(")[0].trim();
+
+    return shortName === playerName;
+
+  });
+
+}
+
 function calculateDiagnosis(user){
 
 const results = players.map(player => {
@@ -286,22 +298,39 @@ function answerDiagnosis(choice){
 
 function showDiagnosisResult(){
 
-  const top3 =
-    calculateDiagnosis(userScore);
+  const top3 = calculateDiagnosis(userScore);
 
   const winner = top3[0];
 
+  const winnerInfo = getPlayerInfo(winner.name);
+  const secondInfo = getPlayerInfo(top3[1].name);
+  const thirdInfo = getPlayerInfo(top3[2].name);
+
   document.getElementById("q").innerHTML = `
-  <h2>診断結果</h2>
+    <h2>診断結果</h2>
 
-  <h1>${winner.name}</h1>
+    <h1>${winner.name}</h1>
 
-  <p>${playerComments[winner.name]}</p>
+    <p>
+    背番号${winnerInfo.no}
+    ／ ${winnerInfo.pos}
+    </p>
 
-  <hr>
+    <p>${playerComments[winner.name]}</p>
 
-  <p>2位：${top3[1].name}</p>
-  <p>3位：${top3[2].name}</p>
+    <hr>
+
+    <p>
+    🥈2位：${top3[1].name}<br>
+    背番号${secondInfo.no}
+    ／ ${secondInfo.pos}
+    </p>
+
+    <p>
+    🥉3位：${top3[2].name}<br>
+    背番号${thirdInfo.no}
+    ／ ${thirdInfo.pos}
+    </p>
   `;
 
   document.getElementById("choices").innerHTML = `
@@ -310,4 +339,5 @@ function showDiagnosisResult(){
     </button>
   `;
 }
+
 startDiagnosis();
