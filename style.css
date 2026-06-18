@@ -198,3 +198,9 @@ a:hover{
 .oshiPage #choices button{
   width:100%;
 }
+
+.editBtn{
+  padding:3px 8px;
+  font-size:12px;
+  margin-top:4px;
+}
