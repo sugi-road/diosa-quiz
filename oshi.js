@@ -451,7 +451,7 @@ document.getElementById("q").innerHTML = `
 
 document.getElementById("choices").innerHTML = `
   <button onclick="location.reload()">
-    推し診断トップへ戻る
+    推し選手診断トップへ戻る
   </button>
 
   <button onclick="location.href='index.html'">
