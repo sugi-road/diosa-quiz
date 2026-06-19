@@ -86,7 +86,7 @@ choices: [
 { text:"ワクワク", score:{ attack:2 } },
 { text:"安心感", score:{ defense:2 } },
 { text:"親近感", score:{ lovable:2 } },
-{ text:"将来への期待", score:{ future:2 } }
+{ text:"熱い気持ち", score:{ passion:2 } }
 ]
 }
 ];
