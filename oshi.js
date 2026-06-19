@@ -45,21 +45,21 @@ choices: [
 ]
 },
 {
-q: "応援したくなるのは？",
+q: "試合中に目が行くのは？",
 choices: [
-{ text: "主力として活躍する選手", score: { veteran: 3 } },
-{ text: "途中出場で流れを変える選手", score: { passion: 3 } },
-{ text: "これから出番を増やす選手", score: { future: 3 } },
-{ text: "ケガから復帰を目指す選手", score: { lovable: 3 } }
+{ text: "ゴールを狙う選手", score: { attack: 3 } },
+{ text: "ドリブルで仕掛ける選手", score: { speed: 3 } },
+{ text: "技術が高い選手", score: { technique: 3 } },
+{ text: "身を投げ出して守る選手", score: { defense: 3 } }
 ]
 },
 {
-q: "チームの主将に選ぶなら？",
+q: "チームのキャプテンを選ぶなら？",
 choices: [
-{ text: "経験豊富な選手", score: { veteran: 2 } },
-{ text: "熱く引っ張る選手", score: { passion: 2 } },
-{ text: "みんなに好かれる選手", score: { lovable: 2 } },
-{ text: "将来を担う若手", score: { future: 2 } }
+{ text: "頼れる先輩タイプ", score: { veteran: 2 } },
+{ text: "熱血タイプ", score: { passion: 2 } },
+{ text: "愛されキャラ", score: { lovable: 2 } },
+{ text: "成長中の若手", score: { future: 2 } }
 ]
 },
 {
