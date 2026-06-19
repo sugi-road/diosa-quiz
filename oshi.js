@@ -96,7 +96,7 @@ const players = [
 {name:"渡部 那月",attack:3,speed:2,defense:5,technique:4,veteran:5,passion:1,lovable:3,future:1,local:5,chugoku:0,far:0},
 {name:"オモロジェバ 英里香",attack:3,speed:5,defense:5,technique:4,veteran:2,passion:3,lovable:3,future:0,local:0,chugoku:0,far:1},
 {name:"伊藤 明里",attack:3,speed:4,defense:3,technique:3,veteran:4,passion:3,lovable:2,future:2,local:0,chugoku:1,far:0},
-{name:"安藤 真桜",attack:2,speed:5,defense:4,technique:3,veteran:2,passion:4,lovable:5,future:4,local:2,chugoku:1,far:0},
+{name:"安藤 真桜",attack:2,speed:5,defense:4,technique:3,veteran:2,passion:4,lovable:5,future:4,local:3,chugoku:1,far:0},
 {name:"伊勢 さつき",attack:4,speed:4,defense:3,technique:5,veteran:3,passion:2,lovable:2,future:4,local:0,chugoku:0,far:1},
 {name:"丸尾 梨菜",attack:5,speed:4,defense:2,technique:3,veteran:2,passion:2,lovable:2,future:3,local:0,chugoku:0,far:1},
 {name:"友近 真那",attack:3,speed:3,defense:5,technique:3,veteran:5,passion:4,lovable:3,future:1,local:0,chugoku:0,far:1},
@@ -115,10 +115,10 @@ const players = [
 {name:"徳本 華暖",attack:3,speed:3,defense:5,technique:4,veteran:2,passion:3,lovable:3,future:4,local:0,chugoku:0,far:1},
 {name:"野村 彩衣",attack:3,speed:3,defense:3,technique:3,veteran:2,passion:5,lovable:4,future:4,local:0,chugoku:0,far:1},
 {name:"柏原 凪沙",attack:3,speed:3,defense:3,technique:4,veteran:2,passion:3,lovable:5,future:4,local:0,chugoku:1,far:0},
-{name:"松本 悠愛",attack:4,speed:4,defense:2,technique:4,veteran:1,passion:2,lovable:3,future:5,local:2,chugoku:1,far:0},
+{name:"松本 悠愛",attack:4,speed:4,defense:2,technique:4,veteran:1,passion:2,lovable:3,future:5,local:3,chugoku:1,far:0},
 {name:"金織 玲七",attack:1,speed:2,defense:5,technique:2,veteran:1,passion:1,lovable:3,future:5,local:4,chugoku:0,far:0},
 {name:"竹下 七海",attack:1,speed:3,defense:4,technique:2,veteran:1,passion:1,lovable:3,future:5,local:4,chugoku:0,far:0},
-{name:"高木 菜望",attack:1,speed:3,defense:4,technique:2,veteran:1,passion:1,lovable:3,future:5,local:3,chugoku:0,far:0}
+{name:"高木 菜望",attack:1,speed:3,defense:4,technique:2,veteran:1,passion:1,lovable:3,future:5,local:4,chugoku:0,far:0}
 ];
 
 const playerComments = {
