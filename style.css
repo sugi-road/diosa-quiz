@@ -140,7 +140,26 @@ a:hover{
 
   width:220px;
   font-size:18px;
+}
 
+.topPage .beginnerBtn{
+  background:#4caf50;
+}
+
+.topPage .intermediateBtn{
+  background:#2196f3;
+}
+
+.topPage .advancedBtn{
+  background:#f44336;
+}
+
+.topPage .retryBtn{
+  background:#673ab7;
+}
+
+.topPage .oshiBtn{
+  background:#ff7a00;
 }
 
 /* 似顔絵専用 */
