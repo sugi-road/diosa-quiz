@@ -449,11 +449,15 @@ document.getElementById("q").innerHTML = `
 </p>
   `;
 
-  document.getElementById("choices").innerHTML = `
-    <button onclick="location.reload()">
-      トップへ戻る
-    </button>
-  `;
+document.getElementById("choices").innerHTML = `
+  <button onclick="location.reload()">
+    推し診断トップへ戻る
+  </button>
+
+  <button onclick="location.href='index.html'">
+    クイズトップへ戻る
+  </button>
+`;
 }
 
 startDiagnosis();
