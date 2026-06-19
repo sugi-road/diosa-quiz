@@ -9,7 +9,7 @@ choices: [
 ]
 },
 {
-q: "応援するとしたら？",
+q: "つい応援したくなるのは？",
 choices: [
 { text:"エース選手", score:{ attack:2 } },
 { text:"ムードメーカー", score:{ lovable:2 } },
@@ -18,12 +18,12 @@ choices: [
 ]
 },
 {
-q: "好きな物語は？",
+q: "物語で好きな主人公は？",
 choices: [
-{ text:"逆転劇", score:{ passion:2 } },
-{ text:"成長物語", score:{ future:2 } },
-{ text:"職人の活躍", score:{ defense:2 } },
-{ text:"天才のひらめき", score:{ technique:2 } }
+{ text:"逆境を跳ね返す人", score:{ passion:2 } },
+{ text:"成長していく人", score:{ future:2 } },
+{ text:"コツコツ努力する人", score:{ defense:2 } },
+{ text:"天才肌の人", score:{ technique:2 } }
 ]
 },
 {
@@ -36,12 +36,12 @@ choices: [
 ]
 },
 {
-q: "推し選手の年齢なら？",
+q: "推し選手に求めるものは？",
 choices: [
-{ text: "年齢は気にしない", score: {} },
-{ text: "ベテランが好き", score: { veteran: 3 } },
-{ text: "若手が好き", score: { future: 3 } },
-{ text: "人柄重視", score: { lovable: 3 } }
+{ text: "頼もしさ", score: {veteran: 3} },
+{ text: "成長の楽しみ", score: { future: 3 } },
+{ text: "親しみやすさ", score: { lovable: 3 } },
+{ text: "年齢は気にしない", score: {} }
 ]
 },
 {
