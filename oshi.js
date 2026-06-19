@@ -41,7 +41,7 @@ choices: [
 { text: "頼もしさ", score: {veteran: 3} },
 { text: "成長の楽しみ", score: { future: 3 } },
 { text: "親しみやすさ", score: { lovable: 3 } },
-{ text: "年齢は気にしない", score: {} }
+{ text: "サッカーの上手さ", score: { technique:3 } }
 ]
 },
 {
