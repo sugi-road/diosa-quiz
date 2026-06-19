@@ -243,3 +243,25 @@ a:hover{
   margin:0;
   padding-left:1em;
 }
+
+/* トップ画面ボタン */
+
+.beginnerBtn{
+  background:#4caf50;
+}
+
+.intermediateBtn{
+  background:#2196f3;
+}
+
+.advancedBtn{
+  background:#f44336;
+}
+
+.retryBtn{
+  background:#673ab7;
+}
+
+.oshiBtn{
+  background:#ff7a00;
+}
