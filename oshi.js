@@ -106,7 +106,7 @@ const players = [
 {name:"打越 怜",attack:4,speed:4,defense:3,technique:5,veteran:3,passion:4,lovable:2,future:3,local:0,chugoku:0,far:1},
 {name:"恒石 亜弓",attack:3,speed:3,defense:3,technique:5,veteran:3,passion:3,lovable:5,future:3,local:0,chugoku:0,far:1},
 {name:"佐藤 萌里",attack:4,speed:5,defense:3,technique:4,veteran:2,passion:2,lovable:2,future:4,local:0,chugoku:0,far:1},
-{name:"相浦 幸桜",attack:3,speed:3,defense:3,technique:4,veteran:2,passion:3,lovable:5,future:2,local:0,chugoku:0,far:1},
+{name:"相浦 幸桜",attack:4,speed:4,defense:3,technique:4,veteran:2,passion:3,lovable:4,future:3,local:0,chugoku:0,far:1},
 {name:"島内 日菜子",attack:2,speed:3,defense:5,technique:3,veteran:2,passion:2,lovable:2,future:5,local:0,chugoku:0,far:1},
 {name:"福井 真歩",attack:4,speed:3,defense:2,technique:4,veteran:2,passion:3,lovable:5,future:4,local:0,chugoku:0,far:1},
 {name:"平良 文果",attack:4,speed:4,defense:4,technique:3,veteran:2,passion:3,lovable:4,future:3,local:0,chugoku:0,far:1},
