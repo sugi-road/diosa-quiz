@@ -314,3 +314,16 @@ a:hover{
     margin-top:6px;
 }
 
+.playerLink{
+    display:inline-block;
+    padding:8px 18px;
+    background:#ff7a00;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.playerLink:hover{
+    opacity:0.9;
+}
