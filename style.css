@@ -284,3 +284,15 @@ a:hover{
 .oshiBtn{
   background:#ff7a00;
 }
+
+.rankName{
+    font-size:1.2rem;
+    font-weight:bold;
+    color:#222;
+}
+
+.rankName rt{
+    font-size:0.5em;
+    color:#666;
+    font-weight:normal;
+}
