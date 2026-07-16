@@ -443,9 +443,8 @@ document.getElementById("q").innerHTML = `
 
     <hr>
 
-<p>
-🥈2位：
-<br>
+<p class="rankBlock">
+🥈2位<br>
 
 <ruby class="rankName">
   ${secondInfo.kanji}
@@ -455,14 +454,12 @@ document.getElementById("q").innerHTML = `
 <br>
 
 <span class="rankInfo">
-背番号${secondInfo.no}
-/ ${secondInfo.pos}
+背番号${secondInfo.no} / ${secondInfo.pos}
 </span>
 </p>
 
-<p>
-🥉3位：
-<br>
+<p class="rankBlock">
+🥉3位<br>
 
 <ruby class="rankName">
   ${thirdInfo.kanji}
@@ -472,8 +469,7 @@ document.getElementById("q").innerHTML = `
 <br>
 
 <span class="rankInfo">
-背番号${thirdInfo.no}
-/ ${thirdInfo.pos}
+背番号${thirdInfo.no} / ${thirdInfo.pos}
 </span>
 </p>
   `;
