@@ -1,4 +1,4 @@
-  introQuestions:[
+const introQuestions = [
 
     {
       question:"ディオッサとは、どういう意味？",
