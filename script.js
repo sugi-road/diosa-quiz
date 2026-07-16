@@ -820,6 +820,8 @@ if(pid){
 
   setTimeout(nextQ,1000);
 }
+  
+}
 
 function showResult(){
 
