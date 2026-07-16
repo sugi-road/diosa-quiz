@@ -427,12 +427,12 @@ document.getElementById("q").innerHTML = `
     あなたの推しは
   </div>
 
-<h1 class="resultIndent">
+<div class="winnerName">
   <ruby>
     ${winnerInfo.kanji}
     <rt>${winnerInfo.yomi}</rt>
   </ruby>
-</h1>
+</div>
 
 <p class="winnerInfo resultIndent">
   背番号${winnerInfo.no}
