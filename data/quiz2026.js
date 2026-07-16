@@ -36,7 +36,8 @@ const quiz2026 = {
 
     beginner:{
 
-  title:"入門編（初めてのディオッサ）",
+document.getElementById("title").innerHTML =
+  '入門編<br><span class="subTitle">（初めてのディオッサ）</span>';
 
       questions:[
         "number",
