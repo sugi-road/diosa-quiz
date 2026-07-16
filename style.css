@@ -327,3 +327,8 @@ a:hover{
 .playerLink:hover{
     opacity:0.9;
 }
+
+.subTitle{
+    font-size:0.6em;
+    font-weight:normal;
+}
