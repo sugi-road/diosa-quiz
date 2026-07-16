@@ -252,11 +252,6 @@ a:hover{
   padding-left:2em;
 }
 
-.rankInfo{
-  display:inline-block;
-  margin-left:4em;
-}
-
 .resultName{
   color:#ff7a00;
   margin:0;
@@ -285,13 +280,27 @@ a:hover{
   background:#ff7a00;
 }
 
-.rankName{
-    font-size:1.2rem;
-    font-weight:bold;
-    color:#222;
+.rankName rt{
+    font-size:0.5em;
+    color:#666;
+    font-weight:normal;
 }
 
-.rankName rt{
+.rankName{
+    display:block;
+    padding-left:1em;
+    font-size:1.2rem;
+    font-weight:bold;
+    text-align:left;
+}
+
+.rankInfo{
+    display:block;
+    padding-left:2em;
+    text-align:left;
+}
+
+.resultIndent ruby rt{
     font-size:0.5em;
     color:#666;
     font-weight:normal;
