@@ -901,7 +901,7 @@ score.innerText=`スコア ${correct}/${total}`;
 
 div.appendChild(score);
 
-if(!forceWeakMode){
+if(!forceWeakMode && !introMode){
 
   let btn=document.createElement("button");
 
@@ -945,19 +945,7 @@ if(!introMode && retryQuestions.length>0){
 
   div.appendChild(retryBtn);
 }
-  if(introMode){
 
-  let topBtn = document.createElement("button");
-
-  topBtn.className = "quizBtn";
-
-  topBtn.innerText = "トップへ戻る";
-
-  topBtn.onclick = ()=>location.href="index.html";
-
-  div.appendChild(topBtn);
-
-}
 }
 
 if(forceFaceMode){
