@@ -310,36 +310,26 @@ function displayName(name){
 
 let introList = [];
 
-function createIntroQuestion(){
-
-  if(introList.length===0){
-
-    introList =
-      shuffle([...introQuestions]).slice(0,5);
-
-  }
+let introList = [];
 
 function createIntroQuestion(){
 
   if(introList.length===0){
 
-    introList =
-      shuffle([...introQuestions]).slice(0,5);
+    introList = shuffle([...introQuestions]).slice(0,5);
 
   }
 
   const q = introList.shift();
 
-  // 選択肢をランダムに並べ替え
-  const correctChoice = q.choices[q.answer];
+  // 元データを書き換えないようコピーを作る
+  const choices = shuffle([...q.choices]);
 
-  q.choices = shuffle([...q.choices]);
-
-  q.answer = q.choices.indexOf(correctChoice);
-
-  return q;
-}
-
+  return {
+    question: q.question,
+    choices: choices,
+    answer: choices.indexOf(q.choices[q.answer])
+  };
 }
 
 function createQuestion(){
