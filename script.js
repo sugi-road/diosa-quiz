@@ -680,8 +680,17 @@ if(introMode){
 // 特別画面
 if(current.special){
 
+if(introMode){
+
+  document.getElementById("q").innerText =
+    current.question;
+
+}else{
+
   document.getElementById("q").innerText =
     current.q;
+
+}
 
   document.getElementById("result").innerText="";
 
@@ -718,8 +727,17 @@ let div=document.getElementById("choices");
     return;
   }
 
+if(introMode){
+
+  document.getElementById("q").innerText =
+    current.question;
+
+}else{
+
   document.getElementById("q").innerText =
     current.q;
+
+}
 
   document.getElementById("result").innerText="";
 
@@ -774,53 +792,72 @@ function judge(i){
 
 if(introMode){
 
-}else{
-  const pid = current.player?.no;
+  if(i===current.answer){
 
-const weakKey =
-  pid + "_" + current.type;
+    document.getElementById("result").innerText="〇";
+    document.getElementById("result").style.color="#4caf50";
+    correct++;
 
-if(i===current.answer){
+  }else{
 
-  document.getElementById("result").innerText="〇";
-  document.getElementById("result").style.color="#4caf50";
+    document.getElementById("result").innerText="×";
+    document.getElementById("result").style.color="#d6001c";
 
-  correct++;
-
-  // 苦手を減らす
-  if(mode==="weak" && pid){
-
-delete weakMap[weakKey];
-    saveWeak();
   }
-
-}else{
-
-  document.getElementById("result").innerText="×";
-  document.getElementById("result").style.color="#d6001c";
-
-if(pid){
-
-  weakMap[weakKey] = 1;
-
-  saveWeak();
-}
-
-  if(!retryMode){
-
-  retryQuestions.push({
-    player: current.player,
-    type: current.type
-  });
-
-}
-}
 
   total++;
 
   setTimeout(nextQ,1000);
-}
-  
+
+}else{
+
+  const pid = current.player?.no;
+
+  const weakKey =
+    pid + "_" + current.type;
+
+  if(i===current.answer){
+
+    document.getElementById("result").innerText="〇";
+    document.getElementById("result").style.color="#4caf50";
+
+    correct++;
+
+    if(mode==="weak" && pid){
+
+      delete weakMap[weakKey];
+      saveWeak();
+
+    }
+
+  }else{
+
+    document.getElementById("result").innerText="×";
+    document.getElementById("result").style.color="#d6001c";
+
+    if(pid){
+
+      weakMap[weakKey]=1;
+      saveWeak();
+
+    }
+
+    if(!retryMode){
+
+      retryQuestions.push({
+        player: current.player,
+        type: current.type
+      });
+
+    }
+
+  }
+
+  total++;
+
+  setTimeout(nextQ,1000);
+
+}  
 }
 
 function showResult(){
