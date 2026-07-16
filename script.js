@@ -49,8 +49,17 @@ if (introMode) {
     modeWrap.style.display = "none";
   }
 }
-document.getElementById("title").innerText =
-  quizData.title;
+if(level==="beginner"){
+
+  document.getElementById("title").innerHTML =
+    '入門編<br><span class="subTitle">（初めてのディオッサ）</span>';
+
+}else{
+
+  document.getElementById("title").innerText =
+    quizData.title;
+
+}
 
 if(forceWeakMode){
 
