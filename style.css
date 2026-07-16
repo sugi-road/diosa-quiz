@@ -234,9 +234,19 @@ a:hover{
 }
 
 .winnerName{
-  color:#ff7a00;
-  margin-bottom:1px;
-  padding-left:1em;
+    color:#ff7a00;
+    font-size:2rem;
+    font-weight:bold;
+    text-align:left;
+    padding-left:1em;
+    margin:0;
+    line-height:1.2;
+}
+
+.winnerName ruby rt{
+    font-size:0.45em;
+    color:#666;
+    font-weight:normal;
 }
 
 .resultIndent{
