@@ -444,35 +444,34 @@ document.getElementById("q").innerHTML = `
     <hr>
 
 <p class="rankBlock">
-🥈2位<br>
+🥈2位
 
-<ruby class="rankName">
-  ${secondInfo.kanji}
-  <rt>${secondInfo.yomi}</rt>
-</ruby>
+<div class="rankName">
+  <ruby>
+    ${secondInfo.kanji}
+    <rt>${secondInfo.yomi}</rt>
+  </ruby>
+</div>
 
-<br>
-
-<span class="rankInfo">
-背番号${secondInfo.no} / ${secondInfo.pos}
-</span>
+<div class="rankInfo">
+  背番号${secondInfo.no} / ${secondInfo.pos}
+</div>
 </p>
 
 <p class="rankBlock">
-🥉3位<br>
+🥉3位
 
-<ruby class="rankName">
-  ${thirdInfo.kanji}
-  <rt>${thirdInfo.yomi}</rt>
-</ruby>
+<div class="rankName">
+  <ruby>
+    ${thirdInfo.kanji}
+    <rt>${thirdInfo.yomi}</rt>
+  </ruby>
+</div>
 
-<br>
-
-<span class="rankInfo">
-背番号${thirdInfo.no} / ${thirdInfo.pos}
-</span>
-</p>
-  `;
+<div class="rankInfo">
+  背番号${thirdInfo.no} / ${thirdInfo.pos}
+</div>
+</p>  `;
 
 document.getElementById("choices").innerHTML = `
   <button onclick="location.reload()">
