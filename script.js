@@ -40,6 +40,9 @@ if(!quizData){
 
 const players = quiz2026.players;
 
+// 初級編（introQuestions.js）
+const introMode =
+  (level === "beginner");
 document.getElementById("title").innerText =
   quizData.title;
 
@@ -288,6 +291,21 @@ function displayName(name){
   }
 
   return name;
+}
+
+let introList = [];
+
+function createIntroQuestion(){
+
+  if(introList.length===0){
+
+    introList =
+      shuffle([...introQuestions]).slice(0,5);
+
+  }
+
+  return introList.shift();
+
 }
 
 function createQuestion(){
@@ -646,7 +664,15 @@ function nextQ(){
   document.getElementById("progress").innerText =
     `${questionCount+1}/${limit}`;
 
-  current=createQuestion();
+if(introMode){
+
+  current = createIntroQuestion();
+
+}else{
+
+  current = createQuestion();
+
+}
   if(!current){
   return showResult();
 }
@@ -746,7 +772,10 @@ function judge(i){
     }
   });
 
-const pid = current.player?.no;
+if(introMode){
+
+}else{
+  const pid = current.player?.no;
 
 const weakKey =
   pid + "_" + current.type;
@@ -834,7 +863,7 @@ if(!forceWeakMode){
 
   div.appendChild(btn);
 }
-  if(retryQuestions.length>0){
+if(!introMode && retryQuestions.length>0){
 
   let retryBtn =
     document.createElement("button");
@@ -866,6 +895,19 @@ if(!forceWeakMode){
 };
 
   div.appendChild(retryBtn);
+}
+  if(introMode){
+
+  let topBtn = document.createElement("button");
+
+  topBtn.className = "quizBtn";
+
+  topBtn.innerText = "トップへ戻る";
+
+  topBtn.onclick = ()=>location.href="index.html";
+
+  div.appendChild(topBtn);
+
 }
 }
 
