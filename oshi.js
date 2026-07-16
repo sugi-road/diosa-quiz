@@ -439,9 +439,19 @@ document.getElementById("q").innerHTML = `
   / ${winnerInfo.pos}
 </p>
 
-    <p>${playerComments[winner.name]}</p>
+<p>${playerComments[winner.name]}</p>
 
-    <hr>
+<p style="text-align:center; margin:15px 0;">
+  <a
+    href="https://www.diosa-fc.jp/player/${winnerInfo.no}/"
+    target="_blank"
+    class="playerLink"
+  >
+    📖 選手紹介を見る
+  </a>
+</p>
+
+<hr>
 
 <p class="rankBlock">
 🥈2位
