@@ -100,10 +100,4 @@ const introQuestions = [
       answer:1
     }
 
-  ],
-
-  levels:{
-    ...
-  }
-
-};
+  ];
