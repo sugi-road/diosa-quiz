@@ -242,6 +242,7 @@ a:hover{
 .resultIndent{
   padding-left:0.5em;
   margin-bottom:0;
+  text-align:left;
 }
 
 .winnerInfo{
@@ -250,6 +251,7 @@ a:hover{
   margin-top:0;
   margin-bottom:0;
   padding-left:2em;
+  text-align:left;
 }
 
 .resultName{
@@ -298,6 +300,10 @@ a:hover{
     display:block;
     padding-left:2em;
     text-align:left;
+}
+
+.resultIndent ruby{
+    display:inline-block;
 }
 
 .resultIndent ruby rt{
