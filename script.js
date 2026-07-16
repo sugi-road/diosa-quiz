@@ -43,6 +43,12 @@ const players = quiz2026.players;
 // 初級編（introQuestions.js）
 const introMode =
   (level === "beginner");
+if (introMode) {
+  const modeWrap = document.querySelector(".modeWrap");
+  if (modeWrap) {
+    modeWrap.style.display = "none";
+  }
+}
 document.getElementById("title").innerText =
   quizData.title;
 
@@ -641,11 +647,15 @@ else if(type==="face"){
 
 function nextQ(){
 
-  let limit;
+let limit;
 
-  if(retryMode){
+if(introMode){
 
-    limit = retryTotal;
+  limit = 5;
+
+}else if(retryMode){
+
+  limit = retryTotal;
 
 }else if(mode==="weak"){
 
@@ -653,9 +663,9 @@ function nextQ(){
 
 }else{
 
-    limit = maxQuestions;
+  limit = maxQuestions;
 
-  }
+}
 
   if(questionCount >= limit){
     return showResult();
