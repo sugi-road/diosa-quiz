@@ -201,13 +201,21 @@ let editingMode = false;
 
 function getPlayerInfo(playerName){
 
-  return quiz2026.players.find(p => {
+  const p = quiz2026.players.find(p => {
 
     const shortName = p.name.split("(")[0].trim();
 
     return shortName === playerName;
 
   });
+
+  if(!p) return null;
+
+  return {
+    ...p,
+    kanji: p.name.replace(/\(.+\)/,"").trim(),
+    yomi: (p.name.match(/\((.+)\)/) || [,""])[1]
+  };
 
 }
 
@@ -420,7 +428,10 @@ document.getElementById("q").innerHTML = `
   </div>
 
 <h1 class="resultIndent">
-  ${winner.name}
+  <ruby>
+    ${winnerInfo.kanji}
+    <rt>${winnerInfo.yomi}</rt>
+  </ruby>
 </h1>
 
 <p class="winnerInfo resultIndent">
