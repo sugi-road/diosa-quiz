@@ -319,7 +319,26 @@ function createIntroQuestion(){
 
   }
 
-  return introList.shift();
+function createIntroQuestion(){
+
+  if(introList.length===0){
+
+    introList =
+      shuffle([...introQuestions]).slice(0,5);
+
+  }
+
+  const q = introList.shift();
+
+  // 選択肢をランダムに並べ替え
+  const correctChoice = q.choices[q.answer];
+
+  q.choices = shuffle([...q.choices]);
+
+  q.answer = q.choices.indexOf(correctChoice);
+
+  return q;
+}
 
 }
 
