@@ -336,3 +336,12 @@ a:hover{
     font-size:0.65em;
     font-weight:normal;
 }
+
+#title{
+    line-height:1.05;
+}
+
+.subTitle{
+    font-size:0.6em;
+    font-weight:normal;
+}
