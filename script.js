@@ -791,6 +791,10 @@ let div=document.getElementById("choices");
 
     btn.innerText=c;
 
+    if(introMode && (c==="〇" || c==="×")){
+  btn.style.fontSize = "36px";
+}
+
     btn.onclick=()=>judge(i);
 
     div.appendChild(btn);
