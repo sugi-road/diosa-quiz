@@ -52,7 +52,7 @@ if (introMode) {
 if(level==="beginner"){
 
   document.getElementById("title").innerHTML =
-    '入門編<br><span class="subTitle">（初めてのディオッサ）</span>';
+    '入門編<div class="subTitle">（初めてのディオッサ）</div>';
 
 }else{
 
