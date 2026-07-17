@@ -921,6 +921,73 @@ score.innerText=`スコア ${correct}/${total}`;
 
 div.appendChild(score);
 
+let comment = document.createElement("div");
+
+comment.style.margin = "15px 0";
+comment.style.fontSize = "18px";
+comment.style.fontWeight = "bold";
+comment.style.color = "#0b4ea2";
+comment.style.lineHeight = "1.6";
+comment.style.padding = "0 10px";
+
+let message = "";
+
+if(introMode){
+
+  if(correct === total){
+
+    message =
+      "🎉 ディオッサのことが少し分かってきました！<br>次は初級編に挑戦してみましょう！";
+
+  }else if(correct >= 3){
+
+    message =
+      "😊 もう一度挑戦すると、もっとディオッサが身近になりますよ！";
+
+  }else{
+
+    message =
+      "🌱 大丈夫！もう一度挑戦すると、きっと覚えられます！";
+
+  }
+
+}else{
+
+  const rate = correct / total;
+
+  if(rate === 1){
+
+    message =
+      "🏆 パーフェクト！あなたは立派なディオッササポーターです！";
+
+  }else if(rate >= 0.8){
+
+    message =
+      "👏 惜しい！あと一歩でパーフェクト！";
+
+  }else if(rate >= 0.6){
+
+    message =
+      "😊 かなり覚えてきましたね！";
+
+  }else if(rate >= 0.4){
+
+    message =
+      "💪 もう少し！苦手克服編にも挑戦してみましょう！";
+
+  }else{
+
+    message =
+      "🌱 まだ始まったばかり。もう一度挑戦してみましょう！";
+
+  }
+
+}
+
+comment.innerHTML = message;
+
+div.appendChild(comment);
+    
 if(!forceWeakMode && !introMode){
 
   let btn=document.createElement("button");
