@@ -310,8 +310,6 @@ function displayName(name){
 
 let introList = [];
 
-let introList = [];
-
 function createIntroQuestion(){
 
   if(introList.length===0){
