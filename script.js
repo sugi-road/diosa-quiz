@@ -443,9 +443,9 @@ else{
   let choices;
   let answer;
 
-// 初級は3択、それ以外は4択
+// 入門編・中級編は3択、上級編は4択
 const choiceCount =
-  (level === "beginner") ? 3 : 4;
+  (level === "advanced") ? 4 : 3;
 
 if(type==="number"){
 
