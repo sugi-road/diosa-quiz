@@ -327,11 +327,6 @@ a:hover{
     opacity:0.9;
 }
 
-.subTitle{
-    font-size:0.6em;
-    font-weight:normal;
-}
-
 .subMenu{
     font-size:0.65em;
     font-weight:normal;
@@ -344,4 +339,5 @@ a:hover{
 .subTitle{
     font-size:0.6em;
     font-weight:normal;
+    margin-top:-6px;
 }
