@@ -86,12 +86,13 @@ h1,h2{
 }
 
 #result{
-  font-size:48px;
+  font-size:28px;
   font-weight:bold;
   text-align:right;
+  height:28px;
   margin-bottom:2px;
   padding-right:5px;
-  min-height:56px;
+  min-height:28px;
 }
 
 .choice{
