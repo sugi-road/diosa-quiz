@@ -42,7 +42,7 @@ const players = quiz2026.players;
 
 // 初級編（introQuestions.js）
 const introMode =
-  (level === "beginner");
+  (level === "beginner" && !forceWeakMode);
 if (introMode) {
   const modeWrap = document.querySelector(".modeWrap");
   if (modeWrap) {
