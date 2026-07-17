@@ -73,8 +73,8 @@ const introQuestions = [
     {
       question:"ディオッサの選手は地域の企業で働きながらプレーしている人もいます。",
       choices:[
-        "○",
-        "×",
+        "⭕",
+        "❌",
         "選手による"
       ],
       answer:0
