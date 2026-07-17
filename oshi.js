@@ -114,6 +114,7 @@ const players = [
 {name:"尾添 有紗",attack:1,speed:3,defense:5,technique:2,veteran:3,passion:4,lovable:4,future:3,local:5,chugoku:0,far:0},
 {name:"徳本 華暖",attack:3,speed:3,defense:5,technique:4,veteran:2,passion:3,lovable:3,future:4,local:0,chugoku:0,far:1},
 {name:"野村 彩衣",attack:3,speed:3,defense:3,technique:3,veteran:2,passion:5,lovable:4,future:4,local:0,chugoku:0,far:1},
+{name:"山本 早織",attack:4,speed:4,defense:3,technique:4,veteran:3,passion:4,lovable:4,future:3,local:0,chugoku:0,far:1},
 {name:"柏原 凪沙",attack:3,speed:3,defense:3,technique:4,veteran:2,passion:3,lovable:5,future:4,local:0,chugoku:1,far:0},
 {name:"松本 悠愛",attack:4,speed:4,defense:2,technique:4,veteran:1,passion:2,lovable:3,future:5,local:3,chugoku:1,far:0},
 {name:"金織 玲七",attack:1,speed:2,defense:5,technique:2,veteran:1,passion:1,lovable:3,future:5,local:4,chugoku:0,far:0},
@@ -167,6 +168,8 @@ const playerComments = {
 
 "野村 彩衣":"守備でチームを支える頼もしい存在。これからの成長も楽しみな選手です。",
 
+"山本 早織":"岡山湯郷Belleに約1年半所属し、帰ってきたヒーロー。左足のテクニックに期待するあなたへ。",
+ 
 "柏原 凪沙":"得点力と勝負強さが魅力のアタッカー。決定的な瞬間に心躍るあなたにピッタリです。",
 
 "松本 悠愛":"高い得点力と将来性を兼ね備えた期待のストライカー。未来のエースを応援したいあなたへ。",
