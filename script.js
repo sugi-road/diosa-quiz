@@ -1057,6 +1057,8 @@ document.getElementById("okClearBtn").onclick = ()=>{
 
   localStorage.removeItem("weakMap");
 
+  document.getElementById("confirmBox").style.display="none";
+
   location.reload();
 
 };
