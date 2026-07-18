@@ -342,3 +342,22 @@ a:hover{
     font-weight:normal;
     margin-top:2px;
 }
+
+.bottomButtons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+}
+
+#clearWeakBtn{
+  background:none;
+  color:#4fc3f7;
+  border:none;
+  font-size:13px;
+  padding:0;
+}
+
+#clearWeakBtn:hover{
+  text-decoration:underline;
+}
