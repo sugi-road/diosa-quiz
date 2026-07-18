@@ -76,9 +76,15 @@ if(forceWeakMode){
   const clearBtn =
     document.getElementById("clearWeakBtn");
 
-  if(clearBtn){
+if(clearBtn){
+
+  if(Object.keys(weakMap).length > 0){
     clearBtn.style.display = "inline-block";
+  }else{
+    clearBtn.style.display = "none";
   }
+
+}
 }
 
 // 似顔絵専用ページ
@@ -248,22 +254,25 @@ if(m==="weak"){
 
   weakTotal = Object.keys(weakMap).length;
 
-  if(weakTotal===0){
+if(weakTotal===0){
 
-    document.getElementById("progress").innerText="";
+  document.getElementById("progress").innerText="";
 
-    document.getElementById("q").innerText =
-      "苦手問題がありません！";
+  document.getElementById("q").innerText =
+    "苦手問題がありません！";
 
-    document.getElementById("result").innerText="";
+  document.getElementById("result").innerText="";
 
-    const div =
-      document.getElementById("choices");
+  const div =
+    document.getElementById("choices");
 
-    div.innerHTML="";
+  div.innerHTML="";
 
-    return;
-  }
+  // 初期化ボタンを隠す
+  document.getElementById("clearWeakBtn").style.display = "none";
+
+  return;
+}
 }
 
   nextQ();
