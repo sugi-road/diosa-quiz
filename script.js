@@ -1043,16 +1043,23 @@ if(!introMode && retryQuestions.length>0){
 
 function clearWeakData(){
 
-  if(!confirm("苦手問題をすべて削除しますか？")){
-    return;
-  }
+  document.getElementById("confirmBox").style.display="flex";
+
+}
+
+document.getElementById("cancelClearBtn").onclick = ()=>{
+
+  document.getElementById("confirmBox").style.display="none";
+
+};
+
+document.getElementById("okClearBtn").onclick = ()=>{
 
   localStorage.removeItem("weakMap");
 
-  alert("苦手問題を初期化しました。");
-
   location.reload();
-}
+
+};
 
 if(forceFaceMode){
 
