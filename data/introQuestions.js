@@ -11,7 +11,7 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサ出雲FCのホームタウンは？",
+      question:"ディオッサ出雲のホームタウンは？",
       choices:[
         "松江市",
         "出雲市",
@@ -21,17 +21,17 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサ出雲FCが所属しているリーグは？",
+      question:"ディオッサ出雲が所属しているリーグは？",
       choices:[
-        "WEリーグ",
-        "なでしこリーグ2部",
+        "WEリーグ(女子プロリーグ)",
+        "なでしこリーグ ２部",
         "中国女子サッカーリーグ"
       ],
       answer:1
     },
 
     {
-      question:"ディオッサのチームカラーは？",
+      question:"ディオッサ出雲のチームカラーは？",
       choices:[
         "オレンジと水色",
         "赤と黒",
@@ -41,7 +41,7 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサは何のスポーツチーム？",
+      question:"ディオッサ出雲は、何のスポーツチーム？",
       choices:[
         "フットサル",
         "女子サッカー",
@@ -61,7 +61,7 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサの試合を応援する人を何と呼ぶ？",
+      question:"ディオッサ出雲の試合を応援する人を何と呼ぶ？",
       choices:[
         "サポーター",
         "ブースター",
@@ -81,9 +81,9 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサ出雲FCが目指しているリーグは？",
+      question:"ディオッサ出雲が目指しているリーグは？",
       choices:[
-        "WEリーグ",
+        "WEリーグ(女子プロリーグ)",
         "海外リーグ",
         "フットサルリーグ"
       ],
