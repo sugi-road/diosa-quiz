@@ -20,13 +20,12 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRM6KD9XGZ"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TRM6KD9XGZ');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TRM6KD9XGZ');
 </script>
-    
+
 </head>
 
 <body>
@@ -72,6 +71,7 @@ onclick="setMode('face')">
 <div class="card">
 
 <div id="progress"></div>
+
 <div id="retryBanner"></div>
 
 <div id="result"></div>
@@ -79,7 +79,7 @@ onclick="setMode('face')">
 <div id="photoArea"></div>
 
 <p id="qWrap">
-  <span id="q"></span>
+<span id="q"></span>
 </p>
 
 <div id="choices"></div>
@@ -88,48 +88,48 @@ onclick="setMode('face')">
 
 <div class="bottomButtons">
 
-  <button id="topBtn"
-    onclick="location.href='index.html'">
-    トップへ戻る
-  </button>
+<button id="topBtn"
+onclick="location.href='index.html'">
+トップへ戻る
+</button>
 
-  <button id="clearWeakBtn"
-    onclick="clearWeakData()"
-    style="display:none;">
-    苦手問題を初期化
-  </button>
+<button id="clearWeakBtn"
+onclick="clearWeakData()"
+style="display:none;">
+苦手問題を初期化
+</button>
+
+</div>
+
+</div>
+
+<!-- 確認ダイアログ -->
+<div id="confirmBox" class="confirmBox">
+
+<div class="confirmCard">
+
+<h3>苦手問題を初期化</h3>
+
+<p>
+苦手問題を<br>
+すべて削除しますか？
+</p>
+
+<button id="cancelClearBtn" class="quizBtn">
+キャンセル
+</button>
+
+<button id="okClearBtn" class="quizBtn danger">
+削除する
+</button>
 
 </div>
 
 </div>
-    
+
 <script src="data/introQuestions.js"></script>
 <script src="./data/quiz2026.js"></script>
 <script src="./script.js?v=2"></script>
 
 </body>
 </html>
-
-<!-- 確認ダイアログ -->
-<div id="confirmBox" class="confirmBox">
-
-  <div class="confirmCard">
-
-    <h3>苦手問題を初期化</h3>
-
-    <p>
-      苦手問題を<br>
-      すべて削除しますか？
-    </p>
-
-    <button id="cancelClearBtn" class="quizBtn">
-      キャンセル
-    </button>
-
-    <button id="okClearBtn" class="quizBtn danger">
-      削除する
-    </button>
-
-  </div>
-
-</div>
