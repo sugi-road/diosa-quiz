@@ -40,7 +40,7 @@ if(!quizData){
 
 const players = quiz2026.players;
 
-// 初級編（introQuestions.js）
+// 入門編（introQuestions.js）
 const introMode =
   (level === "beginner" && !forceWeakMode);
 if (introMode) {
@@ -937,7 +937,7 @@ if(introMode){
   if(correct === total){
 
     message =
-      "🎉 ディオッサのことが少し分かってきました！<br>次は、初級編に挑戦してみましょう！";
+      "🎉 ディオッサのことが少し分かってきました！<br>次は、中級編に挑戦してみましょう！";
 
   }else if(correct >= 3){
 
