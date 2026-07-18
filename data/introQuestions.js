@@ -61,7 +61,7 @@ const introQuestions = [
     },
 
     {
-      question:"ディオッサ出雲の試合を応援する人を何と呼ぶ？",
+      question:"ディオッサ出雲を応援する人を何と呼ぶ？",
       choices:[
         "サポーター",
         "ブースター",
