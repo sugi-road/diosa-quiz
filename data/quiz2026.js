@@ -37,7 +37,7 @@ const quiz2026 = {
 
     beginner:{
 
-    title:"入門編(初めてのディオッサ)",
+    title:"入門編",
 
       questions:[
         "number",
