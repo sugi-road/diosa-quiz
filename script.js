@@ -924,7 +924,7 @@ div.appendChild(score);
 let comment = document.createElement("div");
 
 comment.style.margin = "15px 0";
-comment.style.fontSize = "16px";
+comment.style.fontSize = "14px";
 comment.style.fontWeight = "bold";
 comment.style.color = "#0b4ea2";
 comment.style.lineHeight = "1.6";
