@@ -66,12 +66,18 @@ if(forceWeakMode){
   document.getElementById("title").innerText =
     "苦手克服編";
 
-  // モードボタン全体を非表示
   const modeWrap =
     document.querySelector(".modeWrap");
 
   if(modeWrap){
     modeWrap.style.display = "none";
+  }
+
+  const clearBtn =
+    document.getElementById("clearWeakBtn");
+
+  if(clearBtn){
+    clearBtn.style.display = "inline-block";
   }
 }
 
@@ -1033,6 +1039,19 @@ if(!introMode && retryQuestions.length>0){
   div.appendChild(retryBtn);
 }
 
+}
+
+function clearWeakData(){
+
+  if(!confirm("苦手問題をすべて削除しますか？")){
+    return;
+  }
+
+  localStorage.removeItem("weakMap");
+
+  alert("苦手問題を初期化しました。");
+
+  location.reload();
 }
 
 if(forceFaceMode){
