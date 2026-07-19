@@ -498,3 +498,9 @@ document.getElementById("choices").innerHTML = `
 }
 
 startDiagnosis();
+
+const topBtn = document.getElementById("topBtn");
+
+if(topBtn){
+  topBtn.onclick = () => location.href = "index.html";
+}
