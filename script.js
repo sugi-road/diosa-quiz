@@ -1003,6 +1003,7 @@ if(introMode){
       "🌱 まだ始まったばかり。<br>もう一度挑戦してみましょう！";
 
   }
+}
 
 comment.innerHTML = message;
 
