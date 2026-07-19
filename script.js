@@ -254,25 +254,27 @@ if(m==="weak"){
 
   weakTotal = Object.keys(weakMap).length;
 
-if(weakTotal===0){
+  const clearBtn =
+    document.getElementById("clearWeakBtn");
 
-  document.getElementById("progress").innerText="";
+  if(clearBtn){
+    clearBtn.style.display =
+      weakTotal > 0 ? "inline-block" : "none";
+  }
 
-  document.getElementById("q").innerText =
-    "苦手問題がありません！";
+  if(weakTotal===0){
 
-  document.getElementById("result").innerText="";
+    document.getElementById("progress").innerText="";
 
-  const div =
-    document.getElementById("choices");
+    document.getElementById("q").innerText =
+      "苦手問題がありません！";
 
-  div.innerHTML="";
+    document.getElementById("result").innerText="";
 
-  // 初期化ボタンを隠す
-  document.getElementById("clearWeakBtn").style.display = "none";
+    document.getElementById("choices").innerHTML="";
 
-  return;
-}
+    return;
+  }
 }
 
   nextQ();
@@ -872,6 +874,9 @@ if(introMode){
 
       delete weakMap[weakKey];
       saveWeak();
+      if(Object.keys(weakMap).length===0){
+  document.getElementById("clearWeakBtn").style.display="none";
+}
 
     }
 
