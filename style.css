@@ -329,21 +329,21 @@ a:hover{
 }
 
 .subMenu{
+    display:block;
     font-size:0.65em;
     font-weight:normal;
+    margin-top:2px;
+    line-height:1.0;
 }
 
 #title{
-    line-height:1.0;
-    margin-top:0;
-    margin-bottom:4px;
+    line-height:1.05;
 }
 
 .subTitle{
     font-size:0.6em;
     font-weight:normal;
-    margin-top:0;
-    margin-bottom:0;
+    margin-top:2px;
 }
 
 .bottomButtons{
