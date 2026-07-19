@@ -407,6 +407,11 @@ a:hover{
   background:#d6001c;
 }
 
+.topButtons{
+    text-align:center;
+    margin-top:15px;
+}
+
 .weakButtons{
   margin-top:10px;
   text-align:center;
