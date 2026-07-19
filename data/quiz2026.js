@@ -49,32 +49,29 @@ const quiz2026 = {
     },
 
 
-    intermediate:{
+intermediate:{
 
-      title:"2026 中級編",
+  title:"2026 中級編",
 
-      questions:[
-        "number",
-        "position",
-        "call",
-        "birthplace",
-        "joinYear"
-      ]
-    },
+  questions:[
+    "number",
+    "position",
+    "call",
+    "birthplace"
+  ]
+},
 
 
-    advanced:{
+advanced:{
 
-      title:"2026 上級編",
+  title:"2026 上級編",
 
-      questions:[
-        "number",
-     // "position",
-     // "call",
-        "birthplace",
-        "joinYear",
-        "company"
-              ]
-    }
+  questions:[
+    "number",
+    "joinYear",
+    "birthplace",
+    "company"
+  ]
+}
   }
 };
