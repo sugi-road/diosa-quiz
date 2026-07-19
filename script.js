@@ -1003,31 +1003,6 @@ if(introMode){
       "🌱 まだ始まったばかり。<br>もう一度挑戦してみましょう！";
 
   }
-}
-
-  }else if(rate >= 0.8){
-
-    message =
-      "👏 惜しい！あと一歩でパーフェクト！";
-
-  }else if(rate >= 0.6){
-
-    message =
-      "😊 かなり覚えてきましたね！";
-
-  }else if(rate >= 0.4){
-
-    message =
-      "💪 もう少し！<br>苦手克服編にも挑戦してみましょう！";
-
-  }else{
-
-    message =
-      "🌱 まだ始まったばかり。<br>もう一度挑戦してみましょう！";
-
-  }
-
-}
 
 comment.innerHTML = message;
 
