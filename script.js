@@ -54,6 +54,16 @@ if(level==="beginner"){
   document.getElementById("title").innerHTML =
     '入門編<div class="subTitle">（初めてのディオッサ）</div>';
 
+}else if(level==="intermediate"){
+
+  document.getElementById("title").innerHTML =
+    '2026 中級編<div class="subTitle">（サポーターへの第一歩）</div>';
+
+}else if(level==="advanced"){
+
+  document.getElementById("title").innerHTML =
+    '2026 上級編<div class="subTitle">（ディオッサ博士に挑戦）</div>';
+
 }else{
 
   document.getElementById("title").innerText =
