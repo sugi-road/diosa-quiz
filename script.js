@@ -106,70 +106,58 @@ if(forceFaceMode){
 
 if(level==="beginner"){
 
-  // 初級
+  // 入門編
+  document.getElementById("normalBtn").innerText="入門フル";
   document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("callBtn").style.display="inline-block";
-  // 似顔絵ＯＫでたら、次の行を使う
-  // document.getElementById("faceBtn").style.display="inline-block";
-  // 似顔絵ＯＫでたら、次の行を消す
+
+  document.getElementById("birthplaceBtn").style.display="none";
+  document.getElementById("companyBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
-
-  const birthplaceBtn =
-    document.getElementById("birthplaceBtn");
-
-  const companyBtn =
-    document.getElementById("companyBtn");
-
-  if(birthplaceBtn){
-    birthplaceBtn.style.display="none";
-  }
-
-  if(companyBtn){
-    companyBtn.style.display="none";
-  }
 }
 
 else if(level==="intermediate"){
 
-  // 中級
+  // 中級編
+  document.getElementById("normalBtn").innerText="中級フル";
+
   document.getElementById("numberBtn").style.display="inline-block";
+  document.getElementById("numberBtn").innerText="背番号";
+
   document.getElementById("callBtn").style.display="inline-block";
+  document.getElementById("callBtn").innerText="コール名";
+
+  document.getElementById("birthplaceBtn").style.display="inline-block";
+  document.getElementById("birthplaceBtn").innerText="出身地";
+
+  document.getElementById("companyBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
 
-  const birthplaceBtn =
-    document.getElementById("birthplaceBtn");
-
-  const companyBtn =
-    document.getElementById("companyBtn");
-
-  if(birthplaceBtn){
-    birthplaceBtn.style.display="inline-block";
-  }
-
-  if(companyBtn){
-    companyBtn.style.display="none";
-  }
+  // ポジションボタンとして使う
+  document.getElementById("faceBtn").style.display="inline-block";
+  document.getElementById("faceBtn").innerText="ポジション";
+  document.getElementById("faceBtn").onclick=()=>setMode("position");
 }
 
 else if(level==="advanced"){
 
+  // 上級編
+  document.getElementById("normalBtn").innerText="上級フル";
+
   document.getElementById("numberBtn").style.display="inline-block";
-  document.getElementById("callBtn").style.display="none";
+  document.getElementById("numberBtn").innerText="背番号";
+
+  document.getElementById("callBtn").style.display="inline-block";
+  document.getElementById("callBtn").innerText="何年目";
+  document.getElementById("callBtn").onclick=()=>setMode("joinYear");
+
+  document.getElementById("birthplaceBtn").style.display="inline-block";
+  document.getElementById("birthplaceBtn").innerText="出身地";
+
+  document.getElementById("companyBtn").style.display="inline-block";
+  document.getElementById("companyBtn").innerText="所属先";
+
   document.getElementById("faceBtn").style.display="none";
-
-  const birthplaceBtn =
-    document.getElementById("birthplaceBtn");
-
-  const companyBtn =
-    document.getElementById("companyBtn");
-
-  if(birthplaceBtn){
-    birthplaceBtn.style.display="inline-block";
-  }
-
-  if(companyBtn){
-    companyBtn.style.display="inline-block";
-  }
 }
 
 let mode = forceFaceMode ? "face" : "normal";
@@ -415,6 +403,12 @@ else if(mode==="call"){
 
 }
 
+else if(mode==="position"){
+
+  type="position";
+
+}
+
 else if(mode==="birthplace"){
 
   type="birthplace";
@@ -424,6 +418,12 @@ else if(mode==="birthplace"){
 else if(mode==="company"){
 
   type="company";
+
+}
+
+else if(mode==="joinYear"){
+
+  type="joinYear";
 
 }
 
