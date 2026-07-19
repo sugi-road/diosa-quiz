@@ -73,18 +73,6 @@ if(forceWeakMode){
     modeWrap.style.display = "none";
   }
 
-  const clearBtn =
-    document.getElementById("clearWeakBtn");
-
-if(clearBtn){
-
-  if(Object.keys(weakMap).length > 0){
-    clearBtn.style.display = "inline-block";
-  }else{
-    clearBtn.style.display = "none";
-  }
-
-}
 }
 
 // 似顔絵専用ページ
