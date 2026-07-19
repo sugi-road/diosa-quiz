@@ -133,6 +133,8 @@ else if(level==="intermediate"){
   document.getElementById("birthplaceBtn").style.display="inline-block";
   document.getElementById("birthplaceBtn").innerText="出身地";
 
+  document.getElementById("joinYearBtn").style.display="none";
+  document.getElementById("companyBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
 
 }
@@ -154,6 +156,8 @@ else if(level==="advanced"){
   document.getElementById("companyBtn").style.display="inline-block";
   document.getElementById("companyBtn").innerText="所属先";
 
+  document.getElementById("positionBtn").style.display="none";
+  document.getElementById("callBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
 }
 
