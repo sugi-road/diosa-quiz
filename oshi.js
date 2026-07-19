@@ -278,8 +278,26 @@ function showDiagnosisQuestion(){
 
   const q = diagnosisQuestions[diagnosisIndex];
 
-  document.getElementById("q").textContent =
-    `Q${diagnosisIndex+1}. ${q.q}`;
+document.getElementById("q").innerHTML = `
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+margin-bottom:8px;
+">
+  <div style="font-weight:bold;">
+    Q${diagnosisIndex+1}. ${q.q}
+  </div>
+
+  <div style="
+    color:#888;
+    font-size:14px;
+    white-space:nowrap;
+  ">
+    ${diagnosisIndex+1}/10
+  </div>
+</div>
+`;
 
   const choices =
     document.getElementById("choices");
@@ -349,10 +367,25 @@ function showConfirmScreen(){
         border-bottom:1px solid #ccc;
       ">
         <b>Q${index+1}. ${item.question}</b><br>
-        → ${item.answer}
-        <br>
-        <button
-          class="editBtn"
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:6px;
+">
+
+<span>
+→ ${item.answer}
+</span>
+
+<button
+class="editBtn"
+onclick="editQuestion(${index})"
+>
+この回答を修正
+</button>
+
+</div>
           onclick="editQuestion(${index})"
         >
           この問題を修正
