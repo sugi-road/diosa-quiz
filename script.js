@@ -963,10 +963,47 @@ if(introMode){
 
   const rate = correct / total;
 
-  if(rate === 1){
+  if(mode==="weak"){
+
+    if(rate === 1){
+
+      message =
+        "🎉 苦手問題をすべて克服しました！";
+
+    }else{
+
+      message =
+        "💪 あと少し！もう一度挑戦して苦手をなくしましょう！";
+
+    }
+
+  }else if(rate === 1){
 
     message =
       "🏆 パーフェクト！あなたは立派な<br>ディオッサ サポーターです！";
+
+  }else if(rate >= 0.8){
+
+    message =
+      "👏 惜しい！あと一歩でパーフェクト！";
+
+  }else if(rate >= 0.6){
+
+    message =
+      "😊 かなり覚えてきましたね！";
+
+  }else if(rate >= 0.4){
+
+    message =
+      "💪 もう少し！<br>苦手克服編にも挑戦してみましょう！";
+
+  }else{
+
+    message =
+      "🌱 まだ始まったばかり。<br>もう一度挑戦してみましょう！";
+
+  }
+}
 
   }else if(rate >= 0.8){
 
