@@ -385,11 +385,6 @@ onclick="editQuestion(${index})"
 この回答を修正
 </button>
 
-</div>
-          onclick="editQuestion(${index})"
-        >
-          この問題を修正
-        </button>
       </div>
     `;
   });
