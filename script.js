@@ -124,19 +124,17 @@ else if(level==="intermediate"){
   document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("numberBtn").innerText="背番号";
 
+  document.getElementById("positionBtn").style.display="inline-block";
+  document.getElementById("positionBtn").innerText="ポジション";
+
   document.getElementById("callBtn").style.display="inline-block";
   document.getElementById("callBtn").innerText="コール名";
 
   document.getElementById("birthplaceBtn").style.display="inline-block";
   document.getElementById("birthplaceBtn").innerText="出身地";
 
-  document.getElementById("companyBtn").style.display="none";
   document.getElementById("faceBtn").style.display="none";
 
-  // ポジションボタンとして使う
-  document.getElementById("faceBtn").style.display="inline-block";
-  document.getElementById("faceBtn").innerText="ポジション";
-  document.getElementById("faceBtn").onclick=()=>setMode("position");
 }
 
 else if(level==="advanced"){
@@ -147,10 +145,9 @@ else if(level==="advanced"){
   document.getElementById("numberBtn").style.display="inline-block";
   document.getElementById("numberBtn").innerText="背番号";
 
-  document.getElementById("callBtn").style.display="inline-block";
-  document.getElementById("callBtn").innerText="何年目";
-  document.getElementById("callBtn").onclick=()=>setMode("joinYear");
-
+  document.getElementById("joinYearBtn").style.display="inline-block";
+  document.getElementById("joinYearBtn").innerText="何年目";
+  
   document.getElementById("birthplaceBtn").style.display="inline-block";
   document.getElementById("birthplaceBtn").innerText="出身地";
 
