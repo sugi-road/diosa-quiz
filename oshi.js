@@ -386,6 +386,7 @@ onclick="editQuestion(${index})"
 </button>
 
       </div>
+    </div>
     `;
   });
 
