@@ -1020,7 +1020,7 @@ if(!forceWeakMode && !introMode){
 
   div.appendChild(btn);
 }
-if(!introMode && retryQuestions.length>0){
+if(!introMode && !forceWeakMode && retryQuestions.length>0){
 
   let retryBtn =
     document.createElement("button");
