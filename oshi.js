@@ -491,9 +491,6 @@ document.getElementById("choices").innerHTML = `
     推し選手診断トップへ戻る
   </button>
 
-  <button onclick="location.href='index.html'">
-    クイズトップへ戻る
-  </button>
 `;
 }
 
