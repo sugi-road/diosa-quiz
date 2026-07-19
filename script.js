@@ -1006,16 +1006,31 @@ if(introMode){
   }
 }
 
-comment.innerHTML = message;
+if(!wasRetryMode){
 
-div.appendChild(comment);
+  comment.innerHTML = message;
+  div.appendChild(comment);
+
+}
     
 if(!forceWeakMode && !introMode){
 
   let btn=document.createElement("button");
 
   btn.className="quizBtn";
+  if(level==="intermediate"){
+
+  btn.innerText="中級問題";
+
+}else if(level==="advanced"){
+
+  btn.innerText="上級問題";
+
+}else{
+
   btn.innerText="通常問題";
+
+}
 
   btn.onclick=()=>location.reload();
 
