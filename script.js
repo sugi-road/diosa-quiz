@@ -1,10 +1,25 @@
 const params = new URLSearchParams(location.search);
+// =========================
+// DOM要素
+// =========================
+
+const titleElm = document.getElementById("title");
+const qElm = document.getElementById("q");
+const resultElm = document.getElementById("result");
+const progressElm = document.getElementById("progress");
+const choicesElm = document.getElementById("choices");
+const photoAreaElm = document.getElementById("photoArea");
+const retryBannerElm = document.getElementById("retryBanner");
+const clearWeakBtnElm = document.getElementById("clearWeakBtn");
+const topBtn = document.getElementById("topBtn");
 
 const year = params.get("year") || "2026";
 const level = params.get("level") || "beginner";
 const forceFaceMode =
   params.get("faceonly")==="1";
-const forceWeakMode =
+
+// URL指定による苦手克服専用モード
+  const forceWeakMode =
   params.get("weak")==="1";
 
 let quizData;
@@ -40,7 +55,25 @@ if(!quizData){
 
 const players = quiz2026.players;
 
-// 入門編（introQuestions.js）
+// =========================
+// タイトル設定
+// =========================
+
+const titleData = {
+  beginner: {
+    title: "入門編",
+    sub: "初めてのディオッサ"
+  },
+  intermediate: {
+    title: "2026 中級編",
+    sub: "サポーターへの第一歩"
+  },
+  advanced: {
+    title: "2026 上級編",
+    sub: "ディオッサ博士に挑戦"
+  }
+};
+// 入門編専用モード（初めてのディオッサ向け5問）
 const introMode =
   (level === "beginner" && !forceWeakMode);
 if (introMode) {
@@ -49,31 +82,23 @@ if (introMode) {
     modeWrap.style.display = "none";
   }
 }
-if(level==="beginner"){
+const currentTitle = titleData[level];
 
-  document.getElementById("title").innerHTML =
-    '入門編<div class="subTitle">（初めてのディオッサ）</div>';
+if(currentTitle){
 
-}else if(level==="intermediate"){
-
-  document.getElementById("title").innerHTML =
-    '2026 中級編<div class="subTitle">（サポーターへの第一歩）</div>';
-
-}else if(level==="advanced"){
-
-  document.getElementById("title").innerHTML =
-    '2026 上級編<div class="subTitle">（ディオッサ博士に挑戦）</div>';
+  titleElm.innerHTML =
+    `${currentTitle.title}<div class="subTitle">（${currentTitle.sub}）</div>`;
 
 }else{
 
-  document.getElementById("title").innerText =
-    quizData.title;
+  titleElm.innerText = quizData.title;
 
 }
 
+
 if(forceWeakMode){
 
-  document.getElementById("title").innerText =
+titleElm.innerText =
     "苦手克服編";
 
   const modeWrap =
@@ -85,7 +110,7 @@ if(forceWeakMode){
 
 }
 
-// 似顔絵専用ページ
+// 似顔絵編（公開保留・事務局確認後に使用）
 if(forceFaceMode){
 
   // モードボタン非表示
@@ -96,56 +121,34 @@ if(forceFaceMode){
     modeWrap.style.display = "none";
   }
 
-  // タイトル変更
-  document.getElementById("title").innerText =
+// 公開保留中の似顔絵編タイトル
+titleElm.innerText =
     "ディオッサ出雲クイズ(似顔絵編)";
 
   // トップへ戻るボタン非表示
-  const topBtn =
-    document.getElementById("topBtn");
-
   if(topBtn){
     topBtn.style.display = "none";
   }
 
-  // 似顔絵専用CSS
+  // 似顔絵編用CSS
   document.body.classList.add("faceOnly");
 }
 
 // レベル別メニュー切替
-
-if(level==="beginner"){
-
-  // 入門編
-  document.getElementById("normalBtn").innerText="入門フル";
-  document.getElementById("numberBtn").style.display="inline-block";
-  document.getElementById("callBtn").style.display="inline-block";
-
-  document.getElementById("birthplaceBtn").style.display="none";
-  document.getElementById("companyBtn").style.display="none";
-  document.getElementById("faceBtn").style.display="none";
-}
 
 else if(level==="intermediate"){
 
   // 中級編
   document.getElementById("normalBtn").innerText="中級フル";
 
-  document.getElementById("numberBtn").style.display="inline-block";
-  document.getElementById("numberBtn").innerText="背番号";
+showButton("numberBtn", "背番号");
+showButton("positionBtn", "ポジション");
+showButton("callBtn", "コール名");
+showButton("birthplaceBtn", "出身地");
 
-  document.getElementById("positionBtn").style.display="inline-block";
-  document.getElementById("positionBtn").innerText="ポジション";
-
-  document.getElementById("callBtn").style.display="inline-block";
-  document.getElementById("callBtn").innerText="コール名";
-
-  document.getElementById("birthplaceBtn").style.display="inline-block";
-  document.getElementById("birthplaceBtn").innerText="出身地";
-
-  document.getElementById("joinYearBtn").style.display="none";
-  document.getElementById("companyBtn").style.display="none";
-  document.getElementById("faceBtn").style.display="none";
+hideButton("joinYearBtn");
+hideButton("companyBtn");
+hideButton("faceBtn");
 
 }
 
@@ -154,21 +157,14 @@ else if(level==="advanced"){
   // 上級編
   document.getElementById("normalBtn").innerText="上級フル";
 
-  document.getElementById("numberBtn").style.display="inline-block";
-  document.getElementById("numberBtn").innerText="背番号";
+showButton("numberBtn", "背番号");
+showButton("joinYearBtn", "何年目");
+showButton("birthplaceBtn", "出身地");
+showButton("companyBtn", "所属先");
 
-  document.getElementById("joinYearBtn").style.display="inline-block";
-  document.getElementById("joinYearBtn").innerText="何年目";
-  
-  document.getElementById("birthplaceBtn").style.display="inline-block";
-  document.getElementById("birthplaceBtn").innerText="出身地";
-
-  document.getElementById("companyBtn").style.display="inline-block";
-  document.getElementById("companyBtn").innerText="所属先";
-
-  document.getElementById("positionBtn").style.display="none";
-  document.getElementById("callBtn").style.display="none";
-  document.getElementById("faceBtn").style.display="none";
+hideButton("positionBtn");
+hideButton("callBtn");
+hideButton("faceBtn");
 }
 
 let mode = forceFaceMode ? "face" : "normal";
@@ -213,8 +209,39 @@ function saveWeak(){
   );
 }
 
+function resetGame(){
+
+  questionCount = 0;
+  correct = 0;
+  total = 0;
+  usedPlayers = [];
+
+}
+
+function showButton(id, text){
+
+  const btn = document.getElementById(id);
+
+  if(btn){
+    btn.style.display = "inline-block";
+
+    if(text){
+      btn.innerText = text;
+    }
+  }
+}
+
+function hideButton(id){
+
+  const btn = document.getElementById(id);
+
+  if(btn){
+    btn.style.display = "none";
+  }
+}
+
 function setMode(m){
-  document.getElementById("retryBanner").innerText="";
+  retryBannerElm.innerText="";
   mode=m;
 
   document.querySelectorAll(".mode")
@@ -233,32 +260,27 @@ function setMode(m){
     document.body.classList.add("callMode");
   }
 
-  questionCount=0;
-  correct=0;
-  total=0;
-  usedPlayers = [];
 if(m==="weak"){
 
   weakTotal = Object.keys(weakMap).length;
 
-  const clearBtn =
-    document.getElementById("clearWeakBtn");
+if(clearWeakBtnElm){
 
-  if(clearBtn){
-    clearBtn.style.display =
-      weakTotal > 0 ? "inline-block" : "none";
-  }
+  clearWeakBtnElm.style.display =
+    weakTotal > 0 ? "inline-block" : "none";
+
+}
 
   if(weakTotal===0){
 
-    document.getElementById("progress").innerText="";
+    progressElm.innerText="";
 
-    document.getElementById("q").innerText =
+    qElm.innerText =
       "苦手問題がありません！";
 
-    document.getElementById("result").innerText="";
+    resultElm.innerText="";
 
-    document.getElementById("choices").innerHTML="";
+    choicesElm.innerHTML="";
 
     return;
   }
@@ -312,6 +334,19 @@ function displayName(name){
   return name;
 }
 
+function showPhoto(){
+
+  photoAreaElm.innerHTML = "";
+
+  if(current.type==="face" && current.player?.face){
+
+    photoAreaElm.innerHTML =
+      `<img src="${current.player.face}">`;
+
+  }
+
+}
+
 let introList = [];
 
 function createIntroQuestion(){
@@ -332,6 +367,271 @@ function createIntroQuestion(){
     choices: choices,
     answer: choices.indexOf(q.choices[q.answer])
   };
+}
+
+function createJoinYearQuestion(p, choiceCount){
+
+  const currentYear = 2026;
+
+  const qText = `${displayName(p.name)}は何年目？`;
+
+  const correctText =
+    `${currentYear - p.join + 1}年目`;
+
+  const choices = [correctText];
+
+  while(choices.length < choiceCount){
+
+    const rPlayer = randomChoicePlayer();
+
+    const r =
+      `${currentYear - rPlayer.join + 1}年目`;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  choices.sort((a,b)=>parseInt(a)-parseInt(b));
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(correctText)
+  };
+}
+
+function createCompanyQuestion(p, choiceCount){
+
+  const qText =
+    `${displayName(p.name)}の所属先は？`;
+
+  const choices = [p.company];
+
+  while(choices.length < choiceCount){
+
+    const r =
+      randomChoicePlayer().company;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  shuffle(choices);
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(p.company)
+  };
+}
+
+function createBirthplaceQuestion(p, choiceCount){
+
+  const qText =
+    `${displayName(p.name)}の出身地は？`;
+
+  const choices = [p.from];
+
+  while(choices.length < choiceCount){
+
+    const r =
+      randomChoicePlayer().from;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  shuffle(choices);
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(p.from)
+  };
+}
+
+function createPositionQuestion(p, choiceCount){
+
+  const qText =
+    `${displayName(p.name)}のポジションは？`;
+
+  let choices = ["FW","MF","DF","GK"];
+
+  // 入門編・中級編は3択
+  if(choiceCount === 3){
+
+    const wrongChoices =
+      choices.filter(c => c !== p.pos);
+
+    const removePos =
+      wrongChoices[
+        Math.floor(Math.random() * wrongChoices.length)
+      ];
+
+    choices =
+      choices.filter(c => c !== removePos);
+  }
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(p.pos)
+  };
+}
+
+function createFaceQuestion(p, choiceCount){
+
+  const qText = "この選手は誰？";
+
+  const choices = [p.name];
+
+  while(choices.length < choiceCount){
+
+    const r = randomChoicePlayer().name;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  shuffle(choices);
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(p.name)
+  };
+}
+
+function createCallQuestion(p, choiceCount){
+
+  let qText;
+  let choices;
+  let answer;
+
+  if(Math.random() < 0.5){
+
+    // 名前 → コール名
+    qText = `${p.name.split("(")[0]}のコール名は？`;
+
+    choices = [p.call];
+
+    while(choices.length < choiceCount){
+
+      const r = randomChoicePlayer().call;
+
+      if(!choices.includes(r)){
+        choices.push(r);
+      }
+    }
+
+    shuffle(choices);
+
+    answer = choices.indexOf(p.call);
+
+  }else{
+
+    // コール名 → 名前
+    qText = `コール名「${p.call}」の選手は？`;
+
+    choices = [p.name.split("(")[0]];
+
+    while(choices.length < choiceCount){
+
+      const r =
+        randomChoicePlayer().name.split("(")[0];
+
+      if(!choices.includes(r)){
+        choices.push(r);
+      }
+    }
+
+    shuffle(choices);
+
+    answer = choices.indexOf(
+      p.name.split("(")[0]
+    );
+  }
+
+  return {
+    qText,
+    choices,
+    answer
+  };
+}
+
+function createNumberToNameQuestion(p, choiceCount){
+
+  const qText = `背番号${p.no}の選手は？`;
+
+  const choices = [p.name.split("(")[0]];
+
+  while(choices.length < choiceCount){
+
+    const r =
+      randomChoicePlayer().name.split("(")[0];
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  shuffle(choices);
+
+  return {
+    qText,
+    choices,
+    answer: choices.indexOf(
+      p.name.split("(")[0]
+    )
+  };
+}
+
+function createNameToNumberQuestion(p, choiceCount){
+
+  const qText =
+    `${displayName(p.name)}の背番号は？`;
+
+  const choices = [p.no];
+
+  while(choices.length < choiceCount){
+
+    const r =
+      randomChoicePlayer().no;
+
+    if(!choices.includes(r)){
+      choices.push(r);
+    }
+  }
+
+  choices.sort((a,b)=>a-b);
+
+  return{
+    qText,
+    choices,
+    answer: choices.indexOf(p.no)
+  };
+}
+
+function createNumberQuestion(p, choiceCount){
+
+  if(Math.random() < 0.5){
+
+    return createNumberToNameQuestion(
+      p,
+      choiceCount
+    );
+
+  }
+
+  return createNameToNumberQuestion(
+    p,
+    choiceCount
+  );
+
 }
 
 function createQuestion(){
@@ -465,208 +765,73 @@ const choiceCount =
 
 if(type==="number"){
 
-  if(Math.random()<0.5){
+  const data =
+    createNumberQuestion(p, choiceCount);
 
-    // 番号→名前
-    qText=`背番号${p.no}の選手は？`;
-
-choices=[p.name.split("(")[0]];
-
-while(choices.length<choiceCount){
-
-  const r=randomChoicePlayer().name.split("(")[0];
-
-  if(!choices.includes(r)){
-    choices.push(r);
-  }
-}
-
-choices=shuffle(choices);
-
-answer=choices.indexOf(
-  p.name.split("(")[0]
-);
-
-  } else {
-
-    // 名前→番号
-    qText=`${displayName(p.name)}の背番号は？`;
-
-    choices=[p.no];
-
-    while(choices.length<choiceCount){
-
-      const r=randomChoicePlayer().no;
-
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
-
-    choices.sort((a,b)=>a-b);
-
-    answer=choices.indexOf(p.no);
-  }
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
 }
 
 else if(type==="position"){
 
-  qText=`${displayName(p.name)}のポジションは？`;
+  const data =
+    createPositionQuestion(p, choiceCount);
 
-choices=["FW","MF","DF","GK"];
-
-// 初級は1つだけランダム削除
-if(choiceCount===3){
-
-  const wrongChoices =
-    choices.filter(c => c !== p.pos);
-
-  const removePos =
-    wrongChoices[
-      Math.floor(Math.random()*wrongChoices.length)
-    ];
-
-  choices =
-    choices.filter(c => c !== removePos);
-}
-
-answer=choices.indexOf(p.pos);
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
 }
 
 else if(type==="call"){
 
-  if(Math.random()<0.5){
+  const data =
+    createCallQuestion(p, choiceCount);
 
-    qText=`${p.name.split("(")[0]}のコール名は？`;
-
-    choices=[p.call];
-
-    while(choices.length<choiceCount){
-
-      const r=randomChoicePlayer().call;
-      
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
-
-    choices=shuffle(choices);
-
-    answer=choices.indexOf(p.call);
-
-  } else {
-
-    qText=`コール名「${p.call}」の選手は？`;
-
-    choices=[p.name.split("(")[0]];
-
-    while(choices.length<choiceCount){
-
-      const r=randomChoicePlayer().name.split("(")[0];
-
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
-
-    choices=shuffle(choices);
-
-    answer=choices.indexOf(
-    p.name.split("(")[0]
-  );
-
-  }
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
 }
 
-  else if(type==="birthplace"){
+else if(type==="birthplace"){
 
-    qText=`${displayName(p.name)}の出身地は？`;
-    
-    choices=[p.from];
+  const data =
+    createBirthplaceQuestion(p, choiceCount);
 
-    while(choices.length<choiceCount){
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
+}
 
-      const r=randomChoicePlayer().from;
-      
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
+else if(type==="company"){
 
-    choices=shuffle(choices);
+  const data =
+    createCompanyQuestion(p, choiceCount);
 
-    answer=choices.indexOf(p.from);
-  }
-
-  else if(type==="company"){
-
-    qText=`${displayName(p.name)}の所属先は？`;
-
-    choices=[p.company];
-
-    while(choices.length<choiceCount){
-
-      const r=randomChoicePlayer().company;
-
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
-
-    choices=shuffle(choices);
-
-    answer=choices.indexOf(p.company);
-  }
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
+}
 
 else if(type==="face"){
 
-  qText = "この選手は誰？";
+  const data =
+    createFaceQuestion(p, choiceCount);
 
-  choices=[p.name];
-
-  while(choices.length<choiceCount){
-
-    const r=randomChoicePlayer().name;
-
-    if(!choices.includes(r)){
-      choices.push(r);
-    }
-  }
-
-  choices=shuffle(choices);
-
-  answer=choices.indexOf(p.name);
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
 }
 
-  else if(type==="joinYear"){
+else if(type==="joinYear"){
 
-    const currentYear=2026;
+  const data =
+    createJoinYearQuestion(p, choiceCount);
 
-    qText=`${displayName(p.name)}は何年目？`;
-
-    const correctText =
-      `${currentYear-p.join+1}年目`;
-
-    choices=[correctText];
-
-    while(choices.length<choiceCount){
-
-      const rPlayer=randomChoicePlayer();
-
-      const r =
-        `${currentYear-rPlayer.join+1}年目`;
-
-      if(!choices.includes(r)){
-        choices.push(r);
-      }
-    }
-
-    choices.sort((a,b)=>
-    parseInt(a)-parseInt(b)
-    );
-
-    answer=choices.indexOf(correctText);
-  }
+  qText = data.qText;
+  choices = data.choices;
+  answer = data.answer;
+}
 
   return {
     q:qText,
@@ -703,7 +868,7 @@ if(introMode){
     return showResult();
   }
 
-  document.getElementById("progress").innerText =
+  progressElm.innerText =
     `${questionCount+1}/${limit}`;
 
 if(introMode){
@@ -724,31 +889,21 @@ if(current.special){
 
 if(introMode){
 
-  document.getElementById("q").innerText =
+  qElm.innerText =
     current.question;
 
 }else{
 
-  document.getElementById("q").innerText =
+  qElm.innerText =
     current.q;
 
 }
 
-  document.getElementById("result").innerText="";
+  resultElm.innerText="";
 
-const photoArea =
-  document.getElementById("photoArea");
+showPhoto();
 
-photoArea.innerHTML = "";
-
-if(current.type==="face" && current.player?.face){
-
-  photoArea.innerHTML =
-    `<img src="${current.player.face}">`;
-
-}
-
-let div=document.getElementById("choices");
+let div=choicesElm;
 
   div.innerHTML="";
 
@@ -763,39 +918,23 @@ let div=document.getElementById("choices");
   return;
 }
 
-  // 保険
-  if(!current){
-    console.log("問題生成失敗");
-    return;
-  }
-
 if(introMode){
 
-  document.getElementById("q").innerText =
+  qElm.innerText =
     current.question;
 
 }else{
 
-  document.getElementById("q").innerText =
+  qElm.innerText =
     current.q;
 
 }
 
-  document.getElementById("result").innerText="";
+  resultElm.innerText="";
 
-const photoArea =
-  document.getElementById("photoArea");
+showPhoto();
 
-photoArea.innerHTML = "";
-
-if(current.type==="face" && current.player?.face){
-
-  photoArea.innerHTML =
-    `<img src="${current.player.face}">`;
-
-}
-
-let div=document.getElementById("choices");
+let div=choicesElm;
 
   div.innerHTML="";
 
@@ -840,14 +979,14 @@ if(introMode){
 
   if(i===current.answer){
 
-    document.getElementById("result").innerText="〇";
-    document.getElementById("result").style.color="#4caf50";
+    resultElm.innerText="〇";
+    resultElm.style.color="#4caf50";
     correct++;
 
   }else{
 
-    document.getElementById("result").innerText="×";
-    document.getElementById("result").style.color="#d6001c";
+    resultElm.innerText="×";
+    resultElm.style.color="#d6001c";
 
   }
 
@@ -864,8 +1003,8 @@ if(introMode){
 
   if(i===current.answer){
 
-    document.getElementById("result").innerText="〇";
-    document.getElementById("result").style.color="#4caf50";
+    resultElm.innerText="〇";
+    resultElm.style.color="#4caf50";
 
     correct++;
 
@@ -874,15 +1013,15 @@ if(introMode){
       delete weakMap[weakKey];
       saveWeak();
       if(Object.keys(weakMap).length===0){
-  document.getElementById("clearWeakBtn").style.display="none";
+  clearWeakBtnElm.style.display="none";
 }
 
     }
 
   }else{
 
-    document.getElementById("result").innerText="×";
-    document.getElementById("result").style.color="#d6001c";
+    resultElm.innerText="×";
+    resultElm.style.color="#d6001c";
 
     if(pid){
 
@@ -918,19 +1057,19 @@ function showResult(){
     document.querySelectorAll(".mode")
       .forEach(btn => btn.disabled = false);
 
-    document.getElementById("retryBanner").innerText="";
+    retryBannerElm.innerText="";
 
     retryMode = false;
   }
 
-  document.getElementById("progress").innerText="";
+  progressElm.innerText="";
 
-  document.getElementById("q").innerText="　　";
+  qElm.innerText="　　";
 
-  document.getElementById("result").innerText="";
+  resultElm.innerText="";
   document.getElementById("photoArea").innerHTML="";
 
-  let div=document.getElementById("choices");
+  let div=choicesElm;
 
   div.innerHTML="";
 
@@ -1061,7 +1200,7 @@ if(!introMode && !forceWeakMode && retryQuestions.length>0){
   retryMode = true;
   document.querySelectorAll(".mode")
   .forEach(btn => btn.disabled = true);  
-  document.getElementById("retryBanner").innerText =
+  retryBannerElm.innerText =
   "🔄 間違えた問題だけ挑戦中！";
 
   usedPlayers = [];
@@ -1072,7 +1211,7 @@ if(!introMode && !forceWeakMode && retryQuestions.length>0){
   correct = 0;
   total = 0;
 
-  document.getElementById("result").innerText="";
+  resultElm.innerText="";
 
   nextQ();
 };
@@ -1104,6 +1243,8 @@ document.getElementById("okClearBtn").onclick = ()=>{
 
 };
 
+resetGame();
+
 if(forceFaceMode){
 
   setMode("face");
@@ -1117,8 +1258,6 @@ if(forceFaceMode){
   nextQ();
 
 }
-
-const topBtn = document.getElementById("topBtn");
 
 if(topBtn){
   topBtn.onclick = () => {

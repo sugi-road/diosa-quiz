@@ -142,27 +142,7 @@ a:hover{
   font-size:18px;
 }
 
-.topPage .beginnerBtn{
-  background:#4caf50;
-}
-
-.topPage .intermediateBtn{
-  background:#2196f3;
-}
-
-.topPage .advancedBtn{
-  background:#f44336;
-}
-
-.topPage .retryBtn{
-  background:#673ab7;
-}
-
-.topPage .oshiBtn{
-  background:#ff7a00;
-}
-
-/* 似顔絵専用 */
+/* 似顔絵編（公開保留） */
 
 .faceOnly h2{
   font-size:22px;
@@ -184,8 +164,6 @@ a:hover{
   color:#4fc3f7;
   font-weight:bold;
   text-align:center;
-  margin-bottom:6px;
-  min-height:20px;
 }
 .mode:disabled{
   opacity:0.5;
@@ -202,11 +180,6 @@ a:hover{
   flex-direction:column;
   align-items:center;
   gap:2px;
-}
-
-.oshiPage #choices button{
-  width:280px;
-  max-width:90%;
 }
 
 .oshiPage #q{
