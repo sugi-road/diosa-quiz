@@ -33,7 +33,7 @@ const introQuestions = [
     {
       question:"ディオッサ出雲のチームカラーは？",
       choices:[
-        "オレンジと水色",
+        "オレンジと青",
         "赤と黒",
         "青と白"
       ],

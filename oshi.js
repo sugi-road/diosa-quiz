@@ -18,7 +18,7 @@ choices: [
 ]
 },
 {
-q: "物語で好きな主人公は？",
+q: "あなたは、演じるならどんな役をやりたい？",
 choices: [
 { text:"逆境を跳ね返す人", score:{ passion:2 } },
 { text:"成長していく人", score:{ future:2 } },
@@ -362,8 +362,8 @@ function showConfirmScreen(){
     html += `
       <div style="
         text-align:left;
-        margin:8px 0;
-        padding:8px;
+        margin4px 0;
+        padding:5px;
         border-bottom:1px solid #ccc;
       ">
         <b>Q${index+1}. ${item.question}</b><br>
@@ -371,7 +371,7 @@ function showConfirmScreen(){
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-top:6px;
+margin-top:3px;
 ">
 
 <span>
