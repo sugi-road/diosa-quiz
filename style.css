@@ -134,7 +134,9 @@ a:hover{
 .footer{
   font-size:11px;
   margin-top:3px;
+  line-height:1.0;
 }
+
 /* トップ画面専用 */
 
 .topPage .menu button{
